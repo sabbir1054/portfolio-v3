@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(rm:*)",
+      "Bash(npx next:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl:*)"
+    ]
+  }
+}
