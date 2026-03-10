@@ -1,30 +1,34 @@
 import Copyright from "@/components/footers/Copyright";
-import Footer3 from "@/components/footers/Footer3";
-import Header1 from "@/components/headers/Header1";
+import Footer1 from "@/components/footers/Footer1";
+import Header3 from "@/components/headers/Header3";
+import Header5 from "@/components/headers/Header5";
 import Projects from "@/components/projects/Projects";
 import Link from "next/link";
 import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
+
 export const metadata = {
   title:
-    "Project || Personal Portfolio React Nextjs Template | Freelancer & Developer Portfolio",
+    "Project || Personal Portfolio | Freelancer & Developer Portfolio",
   description:
-    "Personal Portfolio React Nextjs Template | Freelancer & Developer Portfolio",
+    "Personal Portfolio | Freelancer & Developer Portfolio",
 };
+
 export default function page() {
   return (
     <>
-      <div className="project inner">
-        <Header1 />
+      <Header3 />
+      <Header5 />
+      <div className="page-with-left-header">
         <div className="breadcrumb-area breadcrumb-bg">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
                 <div className="breadcrumb-inner text-center">
-                  <h1 className="title split-collab">Project</h1>
+                  <h1 className="title split-collab">All Projects</h1>
                   <ul className="page-list">
                     <li className="tmp-breadcrumb-item">
-                      <Link href={`/`}>Home</Link>
+                      <Link href="/">Home</Link>
                     </li>
                     <li className="icon">
                       <i className="fa-solid fa-angle-right" />
@@ -37,8 +41,9 @@ export default function page() {
           </div>
         </div>
         <Projects />
-        <Footer3 />
-        <Copyright /> <CommonComponents />
+        <Footer1 />
+        <Copyright />
+        <CommonComponents />
       </div>
     </>
   );

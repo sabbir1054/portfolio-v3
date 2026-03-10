@@ -35,9 +35,7 @@ export default function Portfolio({ isLight = false }) {
                   <div className="img-box v2">
                     <Link
                       className="tmp-scroll-trigger tmp-zoom-in animation-order-1"
-                      href={`/project-details${isLight ? "-white" : ""}/${
-                        item.slug
-                      }`}
+                      href={`/project-details/${item.slug}`}
                     >
                       <Image
                         className="w-100"
@@ -54,9 +52,7 @@ export default function Portfolio({ isLight = false }) {
                     <h3 className="portfolio-card-title">
                       <Link
                         className="link"
-                        href={`/project-details${isLight ? "-white" : ""}/${
-                          item.slug
-                        }`}
+                        href={`/project-details/${item.slug}`}
                       >
                         {item.title}
                       </Link>
@@ -64,9 +60,7 @@ export default function Portfolio({ isLight = false }) {
                     <p className="portfoli-card-para">{item.description}</p>
                   </div>
                   <Link
-                    href={`/project-details${isLight ? "-white" : ""}/${
-                      item.slug
-                    }`}
+                    href={`/project-details/${item.slug}`}
                     className="tmp-arrow-icon-btn"
                   >
                     <div className="btn-inner">
@@ -78,6 +72,15 @@ export default function Portfolio({ isLight = false }) {
               </div>
             </div>
           ))}
+        </div>
+        <div className="text-center mt--50">
+          <Link href="/project" className="tmp-btn hover-icon-reverse radius-round">
+            <span>All Portfolio</span>
+            <span className="icon">
+              <i className="fa-solid fa-arrow-right" />
+              <i className="fa-solid fa-arrow-right" />
+            </span>
+          </Link>
         </div>
       </div>
     </div>

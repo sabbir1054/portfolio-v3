@@ -1,18 +1,18 @@
 :root {
 
     // themes color — purple & green cyber/dev theme
-    --color-primary: #00FF88;
-    --color-primary-alt: #00ff88d9;
-    --color-primary-2nd: #7B2FFF;
+    --color-primary: #7B2FFF;
+    --color-primary-alt: #7B2FFFd9;
+    --color-primary-2nd: #00FF88;
     --color-primary-3rd: #A855F7;
-    --color-primary-4th: #00FF88;
+    --color-primary-4th: #7B2FFF;
     --color-secondary: #0A0A0F;
     --color-white:#ffffff;
 
 
     --color-gray: #8B8B9A;
     --color-gray-2: #0F0F1A;
-    --color-subtitle: #00FF88;
+    --color-subtitle: #7B2FFF;
 
 
     // background-color
@@ -24,12 +24,12 @@
     --color-card: #12121F;
 
     // color gradient
-    --gradient-box: linear-gradient(to right, #7B2FFF, #00FF88);
+    --gradient-box: linear-gradient(to right, #00FF88, #7B2FFF);
 
-    --gradient-one: linear-gradient(to right bottom, #7B2FFF, #00FF88);
-    --gradient-two: linear-gradient(to right, #A855F7, #00FF88);
-    --gradient-three: linear-gradient(to right, #0A0A1A, #7B2FFF);
-    --text-gradient-one:linear-gradient(to right, #7B2FFF, #00FF88);
+    --gradient-one: linear-gradient(to right bottom, #00FF88, #7B2FFF);
+    --gradient-two: linear-gradient(to right, #00FF88, #A855F7);
+    --gradient-three: linear-gradient(to right, #0A0A1A, #00FF88);
+    --text-gradient-one:linear-gradient(to right, #00FF88, #7B2FFF);
 
     // typo Color
     --color-heading:#E0E0FF;

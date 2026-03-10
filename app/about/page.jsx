@@ -5,21 +5,26 @@ import Pricing from "@/components/common/Pricing";
 import Services from "@/components/common/Services";
 import Skills from "@/components/common/Skills";
 import Footer1 from "@/components/footers/Footer1";
-import Header1 from "@/components/headers/Header1";
+import Copyright from "@/components/footers/Copyright";
+import Header3 from "@/components/headers/Header3";
+import Header5 from "@/components/headers/Header5";
 import Link from "next/link";
 import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
+
 export const metadata = {
   title:
-    "About || Personal Portfolio React Nextjs Template | Freelancer & Developer Portfolio",
+    "About || Personal Portfolio | Freelancer & Developer Portfolio",
   description:
-    "Personal Portfolio React Nextjs Template | Freelancer & Developer Portfolio",
+    "Personal Portfolio | Freelancer & Developer Portfolio",
 };
+
 export default function page() {
   return (
     <>
-      <div className="about inner">
-        <Header1 />
+      <Header3 />
+      <Header5 />
+      <div className="page-with-left-header">
         <div className="breadcrumb-area breadcrumb-bg">
           <div className="container">
             <div className="row">
@@ -28,7 +33,7 @@ export default function page() {
                   <h1 className="title split-collab">About Me</h1>
                   <ul className="page-list">
                     <li className="tmp-breadcrumb-item">
-                      <Link href={`/`}>Home</Link>
+                      <Link href="/">Home</Link>
                     </li>
                     <li className="icon">
                       <i className="fa-solid fa-angle-right" />
@@ -46,7 +51,9 @@ export default function page() {
         <Education />
         <Pricing />
         <Contact parentClass="get-in-touch-area tmp-section-gapBottom tmp-section-gapTop" />
-        <Footer1 /> <CommonComponents />
+        <Footer1 />
+        <Copyright />
+        <CommonComponents />
       </div>
     </>
   );

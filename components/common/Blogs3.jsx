@@ -87,6 +87,15 @@ export default function Blogs3({
             </div>
           ))}
         </div>
+        <div className="text-center mt--50">
+          <Link href="/blog" className="tmp-btn hover-icon-reverse radius-round">
+            <span>All Blogs</span>
+            <span className="icon">
+              <i className="fa-solid fa-arrow-right" />
+              <i className="fa-solid fa-arrow-right" />
+            </span>
+          </Link>
+        </div>
       </div>
     </section>
   );
