@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
-import { getBlogs, saveBlogs, slugify } from "@/lib/db";
+import { getBlogById, updateBlog, deleteBlog } from "@/lib/db";
 import { validateToken } from "@/lib/auth";
 
 export async function GET(request, { params }) {
   const { id } = await params;
-  const blogs = getBlogs();
-  const blog = blogs.find((b) => b.id === id);
+  const blog = await getBlogById(id);
   if (!blog) return NextResponse.json({ error: "Not found" }, { status: 404 });
   return NextResponse.json(blog);
 }
@@ -18,18 +17,15 @@ export async function PUT(request, { params }) {
 
   const { id } = await params;
   const body = await request.json();
-  const blogs = getBlogs();
-  const index = blogs.findIndex((b) => b.id === id);
-  if (index === -1) return NextResponse.json({ error: "Not found" }, { status: 404 });
-
-  blogs[index] = {
-    ...blogs[index],
-    ...body,
-    slug: slugify(body.title || blogs[index].title),
-    updatedAt: new Date().toISOString(),
-  };
-  saveBlogs(blogs);
-  return NextResponse.json(blogs[index]);
+  try {
+    const blog = await updateBlog(id, body);
+    return NextResponse.json(blog);
+  } catch (e) {
+    if (e.code === "P2025") {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+    throw e;
+  }
 }
 
 export async function DELETE(request, { params }) {
@@ -39,11 +35,13 @@ export async function DELETE(request, { params }) {
   }
 
   const { id } = await params;
-  const blogs = getBlogs();
-  const filtered = blogs.filter((b) => b.id !== id);
-  if (filtered.length === blogs.length) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  try {
+    await deleteBlog(id);
+    return NextResponse.json({ success: true });
+  } catch (e) {
+    if (e.code === "P2025") {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+    throw e;
   }
-  saveBlogs(filtered);
-  return NextResponse.json({ success: true });
 }
