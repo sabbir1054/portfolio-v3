@@ -1,7 +1,6 @@
-import React from "react";
-import Image from "next/image";
-import TyperComponent from "@/components/common/TyperComponent";
 import ParticleComponent from "@/components/common/ParticleComponent";
+import TyperComponent from "@/components/common/TyperComponent";
+import Image from "next/image";
 export default function Hero({ isLight = false }) {
   return (
     <div className="tmp-banner-one-area banner-twelve-area style-3" id="home">
@@ -41,16 +40,16 @@ export default function Hero({ isLight = false }) {
                   </div>
                 </div>
                 <h1 className="title">
-                  I’m John Lee <br />A{" "}
+                  I’m Sabbir Hossain <br />A{" "}
                   <span className="header-caption">
                     <span className="cd-headline clip is-full-width">
                       <TyperComponent
                         strings={[
-                          "Web Designer.",
-                          "Web Developer.",
-                          "UI/UX Designer.",
+                          "Full Stack Web Developer.",
+                          "DevOps Enthusiast.",
+                          "Cyber Security Researcher.",
                           "Freelancer.",
-                          "Content Writer.",
+                          "Technical Content Creator.",
                         ]}
                       />
                     </span>

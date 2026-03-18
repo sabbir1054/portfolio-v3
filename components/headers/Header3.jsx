@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import OnepageNav2 from "./OnepageNav2";
@@ -11,7 +10,7 @@ export default function Header3() {
             <Link href={`/`}>
               <Image
                 alt="personal-logo"
-                src="/assets/images/banner/header-left-user.jpg"
+                src="/assets/images/banner/header-left-user.png"
                 width={350}
                 height={350}
               />
