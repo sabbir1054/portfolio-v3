@@ -1,54 +1,46 @@
 "use client";
-import emailjs from "@emailjs/browser";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
 
 export default function Contact({
   parentClass = "get-in-touch-area tmp-section-gapTop",
 }) {
   const form = useRef();
+  const [sending, setSending] = useState(false);
 
-  const sandMail = (e) => {
+  const sendMail = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        // EmailJS service ID - identifies which email service to use
-        "service_cyobi0y",
+    setSending(true);
 
-        // EmailJS template ID - specifies which email template to use
-        "template_4nbexqj",
+    const formData = new FormData(form.current);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
 
-        // Reference to the HTML form element containing user input
-        form.current,
-
-        {
-          // Public API key for authentication with EmailJS
-          publicKey: "D79JdTqxXVCcQBXL4",
-        }
-      )
-      .then((res) => {
-        if (res.status == 200) {
-          toast.success("Message Sent successfully!", {
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          form.current.reset();
-        } else {
-          toast.error("Ops Message not Sent!", {
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        }
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
+
+      if (res.ok) {
+        toast.success("Message sent successfully!");
+        form.current.reset();
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
+
   return (
     <section className={parentClass} id="contacts">
       <div className="container">
@@ -64,9 +56,8 @@ export default function Contact({
                     Elevate your brand with Me
                   </h2>
                   <p className="description tmp-scroll-trigger tmp-fade-in animation-order-3">
-                    ished fact that a reader will be distrol acted bioiiy desig
-                    ished fact that a reader will acted ished fact that a reader
-                    will be distrol acted
+                    Have a project in mind or want to collaborate? Send me a
+                    message and I&apos;ll get back to you as soon as possible.
                   </p>
                 </div>
               </div>
@@ -78,7 +69,7 @@ export default function Contact({
                       className="tmp-dynamic-form"
                       id="contact-form"
                       ref={form}
-                      onSubmit={sandMail}
+                      onSubmit={sendMail}
                     >
                       <div className="contact-form-wrapper row">
                         <div className="col-lg-6">
@@ -97,10 +88,10 @@ export default function Contact({
                           <div className="form-group">
                             <input
                               className="input-field"
+                              name="phone"
                               id="contact-phone"
                               placeholder="Phone Number"
-                              type="number"
-                              required
+                              type="text"
                             />
                           </div>
                         </div>
@@ -146,10 +137,11 @@ export default function Contact({
                               name="submit"
                               type="submit"
                               id="submit"
+                              disabled={sending}
                             >
                               <span className="icon-reverse-wrapper">
                                 <span className="btn-text">
-                                  Appointment Now
+                                  {sending ? "Sending..." : "Send Message"}
                                 </span>
                                 <span className="btn-icon">
                                   <i className="fa-sharp fa-regular fa-arrow-right" />

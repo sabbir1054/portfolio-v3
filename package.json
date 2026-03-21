@@ -18,6 +18,7 @@
     "bootstrap": "^5.0.2",
     "gsap": "^3.12.7",
     "next": "15.3.0",
+    "nodemailer": "^8.0.3",
     "odometer": "^0.4.8",
     "prisma": "^6.19.2",
     "react": "^19.0.0",
