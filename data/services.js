@@ -3,30 +3,30 @@ import { slugify } from "@/utlis/slugify";
 export const services = [
   {
     id: 1,
-    icon: "fa-light fa-pen-ruler",
-    title: "Web Design",
-    projects: "120 Projects",
+    icon: "fa-light fa-code",
+    title: "Frontend Development",
+    projects: "15+ Projects",
     animationOrder: "1",
   },
   {
     id: 2,
-    icon: "fa-light fa-bezier-curve",
-    title: "Ui/Ux Design",
-    projects: "241 Projects",
+    icon: "fa-light fa-server",
+    title: "Backend Development",
+    projects: "10+ Projects",
     animationOrder: "2",
   },
   {
     id: 3,
-    icon: "fa-light fa-lightbulb",
-    title: "Web Research",
-    projects: "240 Projects",
+    icon: "fa-light fa-database",
+    title: "Database Design",
+    projects: "12+ Projects",
     animationOrder: "3",
   },
   {
     id: 4,
-    icon: "fa-light fa-envelope",
-    title: "Marketing",
-    projects: "331 Prodect",
+    icon: "fa-light fa-cloud",
+    title: "Cloud & DevOps",
+    projects: "8+ Projects",
     animationOrder: "4",
   },
 ].map((elm) => {
@@ -40,9 +40,9 @@ export const services2 = [
   {
     id: 1,
     num: "01.",
-    title: "Success Architects",
+    title: "Frontend Development",
     description:
-      "Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency",
+      "Building responsive, high-performance web apps with React, Next.js, and Vue.js. Skilled in Tailwind CSS, Material UI, Shadcn, and modern UI frameworks for pixel-perfect interfaces.",
     animationOrder: "1",
     isLink: true,
     column: 1,
@@ -50,9 +50,9 @@ export const services2 = [
   {
     id: 2,
     num: "02.",
-    title: "Success Architects",
+    title: "Backend Development",
     description:
-      "App consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency",
+      "Developing scalable server-side solutions with Node.js, Express, Prisma, and Mongoose. Expertise in RESTful APIs, JWT authentication, RBAC, and secure backend architectures.",
     animationOrder: "2",
     isLink: true,
     column: 1,
@@ -60,9 +60,9 @@ export const services2 = [
   {
     id: 3,
     num: "03.",
-    title: "Success Architects",
+    title: "Database & Architecture",
     description:
-      "I specialize in creating solutions that are not only visually engaging but also align with business goals. From [list services, e.g., branding",
+      "Designing efficient database schemas with PostgreSQL, MongoDB, and MySQL. Implementing indexing, caching with Redis, and optimized query strategies for high-performance applications.",
     animationOrder: "3",
     isLink: true,
     column: 1,
@@ -70,9 +70,9 @@ export const services2 = [
   {
     id: 4,
     num: "04.",
-    title: "Ui/visual Design",
+    title: "Cloud & DevOps",
     description:
-      "I'm proud of what I've accomplished and excited to share my journey with you. I'm proud of what I've accomplished and excited to.",
+      "Deploying and managing applications on AWS and GCP with Docker, Nginx, and CI/CD pipelines. Ensuring reliable, scalable infrastructure for production-grade applications.",
     animationOrder: "4",
     isLink: false,
     column: 2,
@@ -80,9 +80,9 @@ export const services2 = [
   {
     id: 5,
     num: "05.",
-    title: "Branding Design",
+    title: "AI-Powered Solutions",
     description:
-      "Interested in working together? Let's bring your ideas to life! Contact me, and let's start building something amazing.",
+      "Integrating AI tools like Claude and ChatGPT into web applications. Building smart features including chat assistants, content generation, and intelligent recommendation systems.",
     animationOrder: "5",
     isLink: false,
     column: 2,
@@ -90,9 +90,9 @@ export const services2 = [
   {
     id: 6,
     num: "06.",
-    title: "Motion Design",
+    title: "Full Stack Consulting",
     description:
-      "Feel free to browse through my recent projects. Each one showcases my approach and dedication to detail, creativity, and.",
+      "End-to-end project development from concept to deployment. Specializing in management systems, e-commerce platforms, and enterprise-grade web applications with modern tech stacks.",
     animationOrder: "6",
     isLink: false,
     column: 2,
@@ -108,23 +108,23 @@ export const services3 = [
   {
     id: 1,
     icon: "feather-cast",
-    title: "UI/UX",
+    title: "Web Apps",
     description:
-      "Passages there are many variations variations of of Lorem available.",
+      "Full stack web applications built with React, Next.js, and Node.js.",
   },
   {
     id: 2,
     icon: "feather-map",
-    title: "App",
+    title: "APIs",
     description:
-      "Variations There are many variations of passages of Lorem available.",
+      "Scalable RESTful APIs with Express, Prisma, and secure authentication.",
   },
   {
     id: 3,
     icon: "feather-phone-call",
     title: "Support",
     description:
-      "There are many variations of passages of Lorem available pro ability.",
+      "Ongoing maintenance, deployment, and performance optimization services.",
   },
 ].map((elm) => {
   return {
@@ -137,54 +137,54 @@ export const services4 = [
   {
     id: 1,
     num: "01.",
-    title: "Success Architects",
+    title: "Frontend Development",
     description:
-      "Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency",
+      "Building responsive, high-performance web apps with React, Next.js, and Vue.js. Skilled in Tailwind CSS, Material UI, Shadcn, and modern UI frameworks for pixel-perfect interfaces.",
     animationOrder: 1,
     column: 1,
   },
   {
     id: 2,
     num: "02.",
-    title: "Success Architects",
+    title: "Backend Development",
     description:
-      "App consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency",
+      "Developing scalable server-side solutions with Node.js, Express, Prisma, and Mongoose. Expertise in RESTful APIs, JWT authentication, RBAC, and secure backend architectures.",
     animationOrder: 2,
     column: 1,
   },
   {
     id: 3,
     num: "03.",
-    title: "Success Architects",
+    title: "Database & Architecture",
     description:
-      "I specialize in creating solutions that are not only visually engaging but also align with business goals. From [list services, e.g., branding",
+      "Designing efficient database schemas with PostgreSQL, MongoDB, and MySQL. Implementing indexing, caching with Redis, and optimized query strategies for high-performance applications.",
     animationOrder: 3,
     column: 1,
   },
   {
     id: 4,
     num: "04.",
-    title: "Ui/visual Design",
+    title: "Cloud & DevOps",
     description:
-      "I'm proud of what I've accomplished and excited to share my journey with you. I'm proud of what I've accomplished and excited to.",
+      "Deploying and managing applications on AWS and GCP with Docker, Nginx, and CI/CD pipelines. Ensuring reliable, scalable infrastructure for production-grade applications.",
     animationOrder: 4,
     column: 2,
   },
   {
     id: 5,
     num: "05.",
-    title: "Branding Design",
+    title: "AI-Powered Solutions",
     description:
-      "Interested in working together? Let's bring your ideas to life! Contact me, and let's start building something amazing.",
+      "Integrating AI tools like Claude and ChatGPT into web applications. Building smart features including chat assistants, content generation, and intelligent recommendation systems.",
     animationOrder: 5,
     column: 2,
   },
   {
     id: 6,
     num: "06.",
-    title: "Motion Design",
+    title: "Full Stack Consulting",
     description:
-      "Feel free to browse through my recent projects. Each one showcases my approach and dedication to detail, creativity, and.",
+      "End-to-end project development from concept to deployment. Specializing in management systems, e-commerce platforms, and enterprise-grade web applications with modern tech stacks.",
     animationOrder: 6,
     column: 2,
   },
@@ -197,87 +197,87 @@ export const services4 = [
 
 export const serviceCards = [
   {
-    title: "A Portfolio of Creativity",
+    title: "End-to-End Web Solutions",
     description:
-      "Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency",
+      "From frontend interfaces to backend logic and database design, I deliver complete full stack solutions using modern JavaScript technologies.",
   },
   {
-    title: "My Portfolio of Innovation",
+    title: "Scalable & Secure Systems",
     description:
-      "My work is driven by the belief that thoughtful design and strategic planning can empower brands, transform businesses",
+      "Building production-ready applications with JWT authentication, RBAC, Docker deployment, and cloud infrastructure on AWS and GCP.",
   },
   {
-    title: "A Showcase of My Projects",
+    title: "AI-Enhanced Applications",
     description:
-      "In this portfolio, you’ll find a curated selection of projects that highlight my skills in [Main Areas, e.g., responsive web design",
+      "Leveraging AI tools to build intelligent features like smart content generation, chat assistants, and data-driven recommendation systems.",
   },
 ];
 
 export const services5 = [
   {
-    title: "A Portfolio of Creativity",
+    title: "End-to-End Web Solutions",
     description:
-      "Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency",
+      "From frontend interfaces to backend logic and database design, I deliver complete full stack solutions using modern JavaScript technologies.",
   },
   {
-    title: "My Portfolio of Innovation",
+    title: "Scalable & Secure Systems",
     description:
-      "My work is driven by the belief that thoughtful design and strategic planning can empower brands, transform businesses",
+      "Building production-ready applications with JWT authentication, RBAC, Docker deployment, and cloud infrastructure on AWS and GCP.",
   },
   {
-    title: "A Showcase of My Projects",
+    title: "AI-Enhanced Applications",
     description:
-      "In this portfolio, you’ll find a curated selection of projects that highlight my skills in [Main Areas, e.g., responsive web design",
+      "Leveraging AI tools to build intelligent features like smart content generation, chat assistants, and data-driven recommendation systems.",
   },
 ];
 export const serviceCards2 = [
   {
     number: "01.",
-    title: "A Portfolio of Creativity",
+    title: "Frontend Engineering",
     description:
-      "Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency",
+      "Crafting responsive, SEO-optimized web interfaces with React, Next.js, and modern CSS frameworks like Tailwind and Material UI.",
   },
   {
     number: "02.",
-    title: "My Portfolio of Innovation",
+    title: "Backend & API Development",
     description:
-      "My work is driven by the belief that thoughtful design and strategic planning can empower brands, transform businesses",
+      "Building robust server-side applications with Node.js, Express, and Prisma. Secure APIs with JWT auth and role-based access control.",
   },
   {
     number: "03.",
-    title: "A Showcase of My Projects",
+    title: "Database & Cloud Infrastructure",
     description:
-      "In this portfolio, you’ll find a curated selection of projects that highlight my skills in [Main Areas, e.g., responsive web design",
+      "Designing efficient data layers with PostgreSQL, MongoDB, and Redis. Deploying on AWS/GCP with Docker and CI/CD pipelines.",
   },
 ];
 
 export const serviceCards3 = [
   {
     iconClass: "fa-regular fa-code",
-    title: "Ui/Ux Design",
+    title: "Frontend Development",
     description:
-      "Each one showcases my approach and dedication to detail, creativity Each one showcases my approach and dedication to detail, creativity",
+      "Building modern, responsive web apps with React, Next.js, Vue.js, and UI libraries like Tailwind CSS, Shadcn, and Ant Design.",
     animationOrder: 4,
   },
   {
-    iconClass: "fa-light fa-palette",
-    title: "Web Development",
+    iconClass: "fa-light fa-server",
+    title: "Backend Development",
     description:
-      "Business consulting consul us to a provide expert advice businesses Each one showcases my approach and dedication to detail, creativity",
+      "Creating scalable APIs and server-side logic with Node.js, Express, Prisma, and Mongoose with secure authentication and RBAC.",
     animationOrder: 5,
   },
   {
-    iconClass: "fa-light fa-print",
-    title: "Business Solutions",
+    iconClass: "fa-light fa-database",
+    title: "Database Solutions",
     description:
-      "Each one showcases my approach and dedication to detail, creativity Each one showcases my approach and dedication to detail, creativity",
+      "Designing and optimizing database architectures using PostgreSQL, MongoDB, and MySQL with Redis caching for peak performance.",
     animationOrder: 4,
   },
   {
-    iconClass: "fa-regular fa-handshake",
-    title: "Profit Partners",
+    iconClass: "fa-regular fa-cloud",
+    title: "Cloud & Deployment",
     description:
-      "Business consulting consul us to a provide expert advice businesses Each one showcases my approach and dedication to detail, creativity",
+      "Deploying production applications on AWS and GCP with Docker, Nginx, and automated CI/CD pipelines for seamless delivery.",
     animationOrder: 5,
   },
 ];
