@@ -1,6 +1,44 @@
 "use client";
 
+import { useRef, useState } from "react";
+import { toast } from "react-toastify";
+
 export default function Chat() {
+  const form = useRef();
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+
+    const formData = new FormData(form.current);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+      subject: "Quick Chat Message",
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        toast.success("Message sent successfully!");
+        form.current.reset();
+      } else {
+        toast.error("Failed to send message.");
+      }
+    } catch {
+      toast.error("Something went wrong.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <div className="ready-chatting-option tmp-ready-chat">
       <input type="checkbox" id="click" />
@@ -16,7 +54,8 @@ export default function Chat() {
           </div>
           <form
             className="tmp-dynamic-form"
-            onSubmit={(e) => e.preventDefault()}
+            ref={form}
+            onSubmit={handleSubmit}
           >
             <div className="field">
               <input
@@ -46,8 +85,8 @@ export default function Chat() {
               />
             </div>
             <div className="field">
-              <button name="submit" type="submit">
-                Send Message
+              <button name="submit" type="submit" disabled={sending}>
+                {sending ? "Sending..." : "Send Message"}
               </button>
             </div>
           </form>
