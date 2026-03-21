@@ -1,11 +1,7 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
 import { footerLinks, footerLinksWhite } from "@/data/footerLinks";
-export default function Footer1({
-  darkLogo = "/assets/images/logo/white-logo-reeni.png",
-  lightLogo = "/assets/images/logo/logo-white.png",
-}) {
+import Link from "next/link";
+export default function Footer1() {
   return (
     <>
       <footer className="footer-area footer-style-one-wrapper bg-color-footer bg_images tmp-section-gap">
@@ -15,21 +11,8 @@ export default function Footer1({
               <div className="col-lg-5 col-md-6">
                 <div className="single-footer-wrapper border-right mr--20">
                   <div className="logo">
-                    <Link href={`/`}>
-                      <Image
-                        className="logo-dark"
-                        alt="Reeni - Personal Portfolio HTML Template for developers and freelancers"
-                        src={darkLogo}
-                        width={121}
-                        height={41}
-                      />
-                      <Image
-                        className="logo-white"
-                        alt="Reeni - Personal Portfolio HTML Template for developers and freelancers"
-                        src={lightLogo}
-                        width={121}
-                        height={40}
-                      />
+                    <Link href="/" className="brand-logo-text brand-lg">
+                      mdsabbir<span className="dot">.</span>dev
                     </Link>
                   </div>
                   <p className="description">
@@ -73,19 +56,19 @@ export default function Footer1({
                       <span className="ft-icon">
                         <i className="fa-solid fa-envelope" />
                       </span>
-                      <a href="#">example@gmail.com</a>
+                      <a href="#">mdsabbir1054@gmail.com</a>
                     </li>
                     <li>
                       <span className="ft-icon">
                         <i className="fa-solid fa-location-dot" />
                       </span>
-                      3891 Ranchview Dr. Richardson
+                      Dhaka, Bangladesh
                     </li>
                     <li>
                       <span className="ft-icon">
                         <i className="fa-solid fa-phone" />
                       </span>
-                      <a href="#">01245789321</a>
+                      <a href="#">+880 1733208221</a>
                     </li>
                   </ul>
                   <div className="social-link footer">

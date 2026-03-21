@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 export default function Copyright() {
   return (
@@ -10,12 +9,13 @@ export default function Copyright() {
               <p className="copy-right-para tmp-link-animation">
                 ©{" "}
                 <a
-                  href="https://themeforest.net/user/inversweb/portfolio"
-                  target="_blank"
+                  href="/"
+                  className=" brand-sm"
+                  style={{ verticalAlign: "middle" }}
                 >
-                  Inversweb {new Date().getFullYear()}
+                  mdsabbir<span className="dot">.</span>dev
                 </a>{" "}
-                | All Rights Reserved
+                {new Date().getFullYear()} | All Rights Reserved
               </p>{" "}
               <ul className="tmp-link-animation dark-content">
                 <li>

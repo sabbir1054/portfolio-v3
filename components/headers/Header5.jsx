@@ -9,13 +9,8 @@ export default function Header5() {
       <div className="row align-items-center">
         <div className="col-6">
           <div className="logo">
-            <Link href={`/`}>
-              <img
-                alt="Reeni - Personal Portfolio HTML Template for developers and freelancers"
-                width="121"
-                height="41"
-                src="assets/images/logo/white-logo-reeni.png"
-              />
+            <Link href={`/`} className="brand-logo-text brand-lg">
+              mdsabbir<span className="dot">.</span>dev
             </Link>
           </div>
         </div>
