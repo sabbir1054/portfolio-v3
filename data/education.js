@@ -1,105 +1,116 @@
-export const educationExperienceData = [
+export const educationData = [
   {
-    role: "Trainer Marketing",
-    duration: "2005-2009",
+    role: "M.Sc. in Cyber Security",
+    institution: "Daffodil International University",
+    duration: "2026 – Present (Expected 2027)",
     description:
-      "A personal portfolio is a curated collection of an individual's professional work, showcasing their skills, experience A personal portfolio.",
+      "Pursuing advanced studies in Cyber Security, focusing on secure system design, threat analysis, and modern security practices for web applications.",
     animationOrder: 1,
   },
   {
-    role: "Assistant Director",
-    duration: "2010-2014",
+    role: "B.Sc. in Software Engineering",
+    institution: "Daffodil International University",
+    duration: "2022 – 2025",
     description:
-      "Each project here showcases my commitment to excellence and adaptability, tailored to meet each client’s unique needs.",
+      "Completed Bachelor's degree in Software Engineering with a CGPA of 3.69. Built strong foundations in software development, algorithms, and system architecture.",
+    animationOrder: 2,
+  },
+];
+
+export const coursesData = [
+  {
+    title: "Complete Web Development (Level 1)",
+    platform: "Programming Hero",
+    duration: "2022",
+    description:
+      "Mastered the MERN stack with a strong focus on frontend development including React, MongoDB, Express, Node.js, HTML5, CSS3, and responsive web design.",
+    animationOrder: 1,
+  },
+  {
+    title: "Next Level Web Development (Level 2)",
+    platform: "Programming Hero",
+    duration: "2024",
+    description:
+      "Advanced full stack architecture covering PostgreSQL, Prisma ORM, advanced Mongoose, AWS deployment, AI integration, and scalable backend development patterns.",
     animationOrder: 2,
   },
   {
-    role: "Design Assistant",
-    duration: "2008-2012",
+    title: "CS Fundamentals with Phitron",
+    platform: "Phitron",
+    duration: "2023",
     description:
-      "I’ve had the privilege of working with various clients, from startups to established companies, helping bring their visions to life.",
+      "Comprehensive CS fundamentals including OOP, software architecture, problem solving, and multiple languages — C, C++, Python, and the Django framework.",
     animationOrder: 3,
   },
   {
-    role: "Design Assistant",
-    duration: "2008-2012",
+    title: "Ethical Hacking",
+    platform: "Cyber Security Center, Daffodil International University",
+    duration: "2025",
     description:
-      "Each project here showcases my commitment to excellence and adaptability, tailored to meet each client’s unique needs a personal.",
+      "Hands-on ethical hacking course covering penetration testing, vulnerability assessment, network security, and real-world cyber security practices.",
     animationOrder: 4,
+  },
+];
+
+export const educationExperienceData = [
+  {
+    role: "M.Sc. in Cyber Security",
+    duration: "2026 – Present",
+    description:
+      "Pursuing advanced studies in Cyber Security at Daffodil International University, focusing on secure system design, threat analysis, and modern security practices.",
+    animationOrder: 1,
+  },
+  {
+    role: "B.Sc. in Software Engineering",
+    duration: "2022 – 2025",
+    description:
+      "Completed Bachelor's degree in Software Engineering at Daffodil International University with a CGPA of 3.69. Strong foundations in software development and system architecture.",
+    animationOrder: 2,
   },
 ];
 
 export const educationExperience = [
   {
-    title: "Trainer Marketing",
-    duration: "2005-2009",
+    title: "M.Sc. in Cyber Security",
+    duration: "2026 – Present",
     description:
-      "A personal portfolio is a curated collection of an individual's professional work, showcasing their skills, experience A personal portfolio.",
+      "Pursuing advanced studies in Cyber Security at Daffodil International University, focusing on secure system design, threat analysis, and modern security practices.",
   },
   {
-    title: "Assistant Director",
-    duration: "2010-2014",
+    title: "B.Sc. in Software Engineering",
+    duration: "2022 – 2025",
     description:
-      "Each project here showcases my commitment to excellence and adaptability, tailored to meet each client’s unique needs.",
-  },
-  {
-    title: "Design Assistant",
-    duration: "2008-2012",
-    description:
-      "I’ve had the privilege of working with various clients, from startups to established companies, helping bring their visions to life.",
-  },
-  {
-    title: "Design Assistant",
-    duration: "2008-2012",
-    description:
-      "Each project here showcases my commitment to excellence and adaptability, tailored to meet each client’s unique needs a personal.",
+      "Completed Bachelor's degree in Software Engineering at Daffodil International University with a CGPA of 3.69. Strong foundations in software development and system architecture.",
   },
 ];
 
 export const educationResumeItems = [
   {
-    duration: "2020 - 2023",
-    title: "Programming course",
-    institute: "Harverd University",
+    duration: "2026 – Present",
+    title: "M.Sc. in Cyber Security",
+    institute: "Daffodil International University",
   },
   {
-    duration: "2016 - 2020",
-    title: "Graphic design course",
-    institute: "University of Denmark",
-  },
-  {
-    duration: "2012 - 2015",
-    title: "Web design course",
-    institute: "University of California",
-  },
-  {
-    duration: "2010 - 2011",
-    title: "Design & Technology",
-    institute: "Parsons, The New School",
-    isLast: true, // to apply the mb--0 class
+    duration: "2022 – 2025",
+    title: "B.Sc. in Software Engineering",
+    institute: "Daffodil International University",
+    isLast: true,
   },
 ];
 
 export const resumeListItems = [
   {
-    title: "Personal Portfolio April Fools",
-    institution: "University of DVI (1997 - 2001)",
-    rating: "4.30/5",
+    title: "M.Sc. in Cyber Security",
+    institution: "Daffodil International University (2026 – Present)",
+    rating: "Expected 2027",
     description:
-      "The education should be very interactual. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante.",
+      "Pursuing advanced studies in Cyber Security, focusing on secure system design, threat analysis, and modern security practices for web applications.",
   },
   {
-    title: "Examples Of Personal Portfolio",
-    institution: "College of Studies (2000 - 2002)",
-    rating: "4.50/5",
+    title: "B.Sc. in Software Engineering",
+    institution: "Daffodil International University (2022 – 2025)",
+    rating: "CGPA: 3.69",
     description:
-      "Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante.",
-  },
-  {
-    title: "Tips For Personal Portfolio",
-    institution: "University of Studies (1997 - 2001)",
-    rating: "4.80/5",
-    description:
-      "If you are going to use a passage. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante.",
+      "Completed Bachelor's degree with strong foundations in software development, algorithms, data structures, and full stack web application development.",
   },
 ];
