@@ -72,16 +72,16 @@ export default function Footer1() {
                     </li>
                   </ul>
                   <div className="social-link footer">
-                    <a href="#">
-                      <i className="fa-brands fa-instagram" />
+                    <a href="https://github.com/sabbir1054" target="_blank" rel="noopener noreferrer">
+                      <i className="fa-brands fa-github" />
                     </a>
-                    <a href="#">
+                    <a href="https://www.linkedin.com/in/md-sabbir-hossain-1054" target="_blank" rel="noopener noreferrer">
                       <i className="fa-brands fa-linkedin-in" />
                     </a>
-                    <a href="#">
-                      <i className="fa-brands fa-twitter" />
+                    <a href="https://www.upwork.com/freelancers/~01a76df77f79bd0eaa" target="_blank" rel="noopener noreferrer">
+                      <span className="upwork-icon">UP</span>
                     </a>
-                    <a href="#">
+                    <a href="https://www.facebook.com/sabbir.1054" target="_blank" rel="noopener noreferrer">
                       <i className="fa-brands fa-facebook-f" />
                     </a>
                   </div>

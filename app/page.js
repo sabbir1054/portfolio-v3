@@ -1,9 +1,7 @@
 import Blogs3 from "@/components/common/Blogs3";
-import Brands from "@/components/common/Brands";
 import CommonComponents from "@/components/common/CommonComponents";
 import Education from "@/components/common/Education2";
 import Portfolio from "@/components/common/Portfolio2";
-import Pricing from "@/components/common/Pricing";
 import Header3 from "@/components/headers/Header3";
 import Contact from "@/components/common/Contact2";
 import Hero from "@/components/homes/home-12/Hero";
@@ -29,8 +27,6 @@ export default function Home() {
         <Services parentClass="latest-service-area pt--40" />
         <Portfolio />
         <Education />
-        <Brands />
-        <Pricing />
         <Blogs3 parentClass="blog-and-news-are tmp-section-gapTop" />
         <Contact parentClass="get-in-touch-area tmp-section-gap" />
         <Footer1 />

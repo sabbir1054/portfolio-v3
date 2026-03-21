@@ -98,13 +98,13 @@ export default function BlogSidebar({ isLight = false }) {
                 <p className="para">UI/UX Designer</p>
                 <div className="social-link">
                   <a href="#">
-                    <i className="fa-brands fa-instagram" />
+                    <i className="fa-brands fa-github" />
                   </a>
                   <a href="#">
                     <i className="fa-brands fa-linkedin-in" />
                   </a>
                   <a href="#">
-                    <i className="fa-brands fa-twitter" />
+                    <span className="upwork-icon">UP</span>
                   </a>
                   <a href="#">
                     <i className="fa-brands fa-facebook-f" />

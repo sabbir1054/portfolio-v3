@@ -44,7 +44,7 @@ export const coursesData = [
   },
   {
     title: "Ethical Hacking",
-    platform: "Cyber Security Center, Daffodil International University",
+    platform: "Cyber Security Centre, Daffodil International University",
     duration: "2025",
     description:
       "Hands-on ethical hacking course covering penetration testing, vulnerability assessment, network security, and real-world cyber security practices.",

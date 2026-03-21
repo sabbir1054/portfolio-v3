@@ -129,13 +129,13 @@ export default function BlogDetails({ blog, isLight = false }) {
                   </div>
                   <div className="social-link footer">
                     <a href="#">
-                      <i className="fa-brands fa-instagram" />
+                      <i className="fa-brands fa-github" />
                     </a>
                     <a href="#">
                       <i className="fa-brands fa-linkedin-in" />
                     </a>
                     <a href="#">
-                      <i className="fa-brands fa-twitter" />
+                      <span className="upwork-icon">UP</span>
                     </a>
                     <a href="#">
                       <i className="fa-brands fa-facebook-f" />
@@ -165,10 +165,10 @@ export default function BlogDetails({ blog, isLight = false }) {
                             <i className="fa-brands fa-facebook-f" />
                           </a>
                           <a href="#">
-                            <i className="fa-brands fa-twitter" />
+                            <span className="upwork-icon">UP</span>
                           </a>
                           <a href="#">
-                            <i className="fa-brands fa-instagram" />
+                            <i className="fa-brands fa-github" />
                           </a>
                         </div>
                       </div>
@@ -203,10 +203,10 @@ export default function BlogDetails({ blog, isLight = false }) {
                             <i className="fa-brands fa-facebook-f" />
                           </a>
                           <a href="#">
-                            <i className="fa-brands fa-twitter" />
+                            <span className="upwork-icon">UP</span>
                           </a>
                           <a href="#">
-                            <i className="fa-brands fa-instagram" />
+                            <i className="fa-brands fa-github" />
                           </a>
                         </div>
                       </div>
@@ -240,10 +240,10 @@ export default function BlogDetails({ blog, isLight = false }) {
                             <i className="fa-brands fa-facebook-f" />
                           </a>
                           <a href="#">
-                            <i className="fa-brands fa-twitter" />
+                            <span className="upwork-icon">UP</span>
                           </a>
                           <a href="#">
-                            <i className="fa-brands fa-instagram" />
+                            <i className="fa-brands fa-github" />
                           </a>
                         </div>
                       </div>

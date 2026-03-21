@@ -1,6 +1,5 @@
-import React from "react";
+import { coursesData, educationData } from "@/data/education";
 import Image from "next/image";
-import { educationData, coursesData } from "@/data/education";
 export default function Education() {
   return (
     <section className="education-experience tmp-section-gapTop" id="resume">
@@ -37,7 +36,15 @@ export default function Education() {
                 className={`education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-${item.animationOrder}`}
               >
                 <h4 className="edu-sub-title">{item.role}</h4>
-                <p className="edu-institution" style={{ color: "var(--color-primary-2nd)", fontSize: "14px", marginBottom: "5px", fontFamily: "var(--font-secondary)" }}>
+                <p
+                  className="edu-institution"
+                  style={{
+                    color: "var(--color-primary-2nd)",
+                    fontSize: "14px",
+                    marginBottom: "5px",
+                    fontFamily: "var(--font-secondary)",
+                  }}
+                >
                   {item.institution}
                 </p>
                 <h2 className="edu-title">{item.duration}</h2>
@@ -68,7 +75,15 @@ export default function Education() {
                   >
                     <h4 className="edu-sub-title">{item.title}</h4>
                     {item.platform && (
-                      <p className="edu-institution" style={{ color: "var(--color-primary-2nd)", fontSize: "14px", marginBottom: "5px", fontFamily: "var(--font-secondary)" }}>
+                      <p
+                        className="edu-institution"
+                        style={{
+                          color: "var(--color-primary-2nd)",
+                          fontSize: "14px",
+                          marginBottom: "5px",
+                          fontFamily: "var(--font-secondary)",
+                        }}
+                      >
                         {item.platform}
                       </p>
                     )}
@@ -106,9 +121,12 @@ export default function Education() {
                     management systems, and e-commerce applications.
                   </p>
                 </div>
-                <div className="experience-content tmp-scroll-trigger tmp-fade-in animation-order-2">
+
+                <div className="experience-content tmp-scroll-trigger tmp-fade-in animation-order-3">
                   <p className="ex-subtitle">experience</p>
-                  <h2 className="ex-name">Infinity Algo Station (Sep 2023 - Oct 2025)</h2>
+                  <h2 className="ex-name">
+                    Infinity Algo Station (Sep 2023 - Oct 2025)
+                  </h2>
                   <h3 className="ex-title">Full Stack Developer</h3>
                   <p className="ex-para">
                     Built scalable web applications using React, Next.js,
@@ -117,16 +135,29 @@ export default function Education() {
                     and GCP.
                   </p>
                 </div>
+
+                <div className="experience-content tmp-scroll-trigger tmp-fade-in animation-order-2">
+                  <p className="ex-subtitle">experience</p>
+                  <h2 className="ex-name">
+                    Cyber Security Centre, DIU (2025 - Present)
+                  </h2>
+                  <h3 className="ex-title">Cyber Security Researcher</h3>
+                  <p className="ex-para">
+                    Conducting security research at the Cyber Security Centre in
+                    Daffodil International University, focusing on vulnerability
+                    assessment, penetration testing, and secure system analysis.
+                  </p>
+                </div>
               </div>
             </div>
             <div className="col-lg-6">
               <div className="experiences-wrap-right-content">
                 <Image
                   className="tmp-scroll-trigger tmp-zoom-in animation-order-1"
-                  alt="expert-img"
-                  src="/assets/images/experiences/expert-img.jpg"
-                  width={945}
-                  height={719}
+                  alt="Sabbir Hossain"
+                  src="/assets/images/banner/banner-user-image-04.png"
+                  width={525}
+                  height={525}
                 />
               </div>
             </div>

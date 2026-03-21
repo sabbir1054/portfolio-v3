@@ -7,9 +7,8 @@ const navItems = [
   { id: 3, href: "#service", text: "Services" },
   { id: 4, href: "#portfolio", text: "Portfolio" },
   { id: 5, href: "#resume", text: "Resume" },
-  { id: 6, href: "#pricing", text: "Pricing" },
-  { id: 7, href: "#blog", text: "Blog" },
-  { id: 8, href: "#contacts", text: "Contact" },
+  { id: 6, href: "#blog", text: "Blog" },
+  { id: 7, href: "#contacts", text: "Contact" },
 ];
 
 export default function OnepageNavMobile({
