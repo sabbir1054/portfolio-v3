@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { contactEmail, subscriptionEmail } from "@/lib/emailTemplate";
 
 export async function POST(request) {
   try {
@@ -20,21 +21,18 @@ export async function POST(request) {
       },
     });
 
+    const isSubscription = name === "Newsletter Subscriber";
+
     await transporter.sendMail({
-      from: `"${name}" <${process.env.SMTP_EMAIL}>`,
+      from: `"mdsabbir.dev" <${process.env.SMTP_EMAIL}>`,
       to: "mdsabbir1054@gmail.com",
       replyTo: email,
-      subject: subject || `New Contact from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-        <p><strong>Subject:</strong> ${subject || "No subject"}</p>
-        <hr />
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
+      subject: isSubscription
+        ? `New Subscriber: ${email}`
+        : subject || `New Contact from ${name}`,
+      html: isSubscription
+        ? subscriptionEmail(email)
+        : contactEmail({ name, email, phone, subject, message }),
     });
 
     return NextResponse.json({ success: true });

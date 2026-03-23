@@ -1,7 +1,43 @@
 "use client";
+import { useState, useRef } from "react";
 import { footerLinks, footerLinksWhite } from "@/data/footerLinks";
 import Link from "next/link";
+import { toast } from "react-toastify";
+
 export default function Footer1() {
+  const formRef = useRef();
+  const [sending, setSending] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    const email = formRef.current.email.value;
+    if (!email) return;
+
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Newsletter Subscriber",
+          email,
+          message: `New newsletter subscription from: ${email}`,
+          subject: "New Newsletter Subscription",
+        }),
+      });
+      if (res.ok) {
+        toast.success("Subscribed successfully!");
+        formRef.current.reset();
+      } else {
+        toast.error("Failed to subscribe.");
+      }
+    } catch {
+      toast.error("Something went wrong.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <>
       <footer className="footer-area footer-style-one-wrapper bg-color-footer bg_images tmp-section-gap">
@@ -19,13 +55,14 @@ export default function Footer1() {
                     <span>Get Ready</span> To Create Great
                   </p>
                   <form
-                    onSubmit={(e) => e.preventDefault()}
+                    ref={formRef}
+                    onSubmit={handleSubscribe}
                     className="newsletter-form-1 mt--40"
                   >
-                    <input type="email" placeholder="Email Adress" />
-                    <span className="form-icon">
-                      <i className="fa-regular fa-envelope" />
-                    </span>
+                    <input type="email" name="email" placeholder="Email Address" required />
+                    <button type="submit" className="form-icon" disabled={sending} style={{ background: "none", border: "none", cursor: "pointer" }}>
+                      <i className={sending ? "fa-solid fa-spinner fa-spin" : "fa-regular fa-envelope"} />
+                    </button>
                   </form>
                 </div>
               </div>
@@ -56,7 +93,7 @@ export default function Footer1() {
                       <span className="ft-icon">
                         <i className="fa-solid fa-envelope" />
                       </span>
-                      <a href="#">mdsabbir1054@gmail.com</a>
+                      <a href="mailto:mdsabbir1054@gmail.com">mdsabbir1054@gmail.com</a>
                     </li>
                     <li>
                       <span className="ft-icon">
@@ -68,7 +105,7 @@ export default function Footer1() {
                       <span className="ft-icon">
                         <i className="fa-solid fa-phone" />
                       </span>
-                      <a href="#">+880 1733208221</a>
+                      <a href="tel:+8801733208221">+880 1733208221</a>
                     </li>
                   </ul>
                   <div className="social-link footer">

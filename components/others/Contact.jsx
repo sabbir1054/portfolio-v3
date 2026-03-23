@@ -1,52 +1,44 @@
 "use client";
-import emailjs from "@emailjs/browser";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
 
 export default function Contact() {
   const form = useRef();
+  const [sending, setSending] = useState(false);
 
-  const sandMail = (e) => {
+  const sendMail = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        // EmailJS service ID - identifies which email service to use
-        "service_cyobi0y",
+    setSending(true);
 
-        // EmailJS template ID - specifies which email template to use
-        "template_4nbexqj",
+    const formData = new FormData(form.current);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
 
-        // Reference to the HTML form element containing user input
-        form.current,
-
-        {
-          // Public API key for authentication with EmailJS
-          publicKey: "D79JdTqxXVCcQBXL4",
-        }
-      )
-      .then((res) => {
-        if (res.status == 200) {
-          toast.success("Message Sent successfully!", {
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          form.current.reset();
-        } else {
-          toast.error("Ops Message not Sent!", {
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        }
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
+
+      if (res.ok) {
+        toast.success("Message sent successfully!");
+        form.current.reset();
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
+
   return (
     <div className="contact-area-wrapper tmp-section-gap">
       <div className="container">
@@ -58,8 +50,7 @@ export default function Contact() {
                   <i className="fa-solid fa-location-dot" />
                 </div>
                 <h3 className="title">Address</h3>
-                <p className="para">Dhaka 102, utl 1216, road 45</p>
-                <p className="para">house of street</p>
+                <p className="para">Dhaka, Bangladesh</p>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -68,11 +59,8 @@ export default function Contact() {
                   <i className="fa-solid fa-envelope" />
                 </div>
                 <h3 className="title">E-mail</h3>
-                <a href="mailto:themespark11@gmail.com">
-                  <p className="para">hasan@yourmail.com</p>
-                </a>
-                <a href="mailto:themespark11@gmail.com">
-                  <p className="para">themespark11@gmail.com</p>
+                <a href="mailto:mdsabbir1054@gmail.com">
+                  <p className="para">mdsabbir1054@gmail.com</p>
                 </a>
               </div>
             </div>
@@ -82,14 +70,14 @@ export default function Contact() {
                   <i className="fa-solid fa-phone" />
                 </div>
                 <h3 className="title">Call Me</h3>
-                <p className="para">0000 - 000 - 000 00</p>
-                <p className="para">+1234 - 000</p>
+                <a href="tel:+8801733208221">
+                  <p className="para">+880 1733208221</p>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {/* Tpm Get In touch start */}
       <section className="get-in-touch-area tmp-section-gapTop">
         <div className="container">
           <div className="contact-get-in-touch-wrap">
@@ -104,9 +92,8 @@ export default function Contact() {
                       Elevate your brand with Me
                     </h2>
                     <p className="description tmp-scroll-trigger tmp-fade-in animation-order-3">
-                      ished fact that a reader will be distrol acted bioiiy
-                      desig ished fact that a reader will acted ished fact that
-                      a reader will be distrol acted
+                      Have a project in mind or want to collaborate? Send me a
+                      message and I&apos;ll get back to you as soon as possible.
                     </p>
                   </div>
                 </div>
@@ -118,7 +105,7 @@ export default function Contact() {
                         className="tmp-dynamic-form"
                         id="contact-form"
                         ref={form}
-                        onSubmit={sandMail}
+                        onSubmit={sendMail}
                       >
                         <div className="contact-form-wrapper row">
                           <div className="col-lg-6">
@@ -137,10 +124,10 @@ export default function Contact() {
                             <div className="form-group">
                               <input
                                 className="input-field"
+                                name="phone"
                                 id="contact-phone"
                                 placeholder="Phone Number"
-                                type="number"
-                                required
+                                type="text"
                               />
                             </div>
                           </div>
@@ -186,10 +173,11 @@ export default function Contact() {
                                 name="submit"
                                 type="submit"
                                 id="submit"
+                                disabled={sending}
                               >
                                 <span className="icon-reverse-wrapper">
                                   <span className="btn-text">
-                                    Appointment Now
+                                    {sending ? "Sending..." : "Send Message"}
                                   </span>
                                   <span className="btn-icon">
                                     <i className="fa-sharp fa-regular fa-arrow-right" />
@@ -211,7 +199,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      {/* Tpm Get In touch End */}
     </div>
   );
 }
