@@ -36,13 +36,17 @@ export default function Portfolio({ isLight = false, items = [] }) {
                       className="tmp-scroll-trigger tmp-zoom-in animation-order-1"
                       href={`/project-details/${item.slug}`}
                     >
-                      <Image
-                        className="w-100"
-                        alt={item.title || "Thumbnail"}
-                        src={item.imageSrc || "/assets/images/portfolio/portfolio-01.jpg"}
-                        width={item.width || 1920}
-                        height={item.height || 1572}
-                      />
+                      {item.imageSrc ? (
+                        <Image
+                          className="w-100"
+                          alt={item.title || "Thumbnail"}
+                          src={item.imageSrc}
+                          width={item.width || 1920}
+                          height={item.height || 1572}
+                        />
+                      ) : (
+                        <div className="w-100" style={{ background: "var(--background-color-4)", aspectRatio: "16/9", borderRadius: "8px" }} />
+                      )}
                     </Link>
                   </div>
                 </div>

@@ -16,28 +16,30 @@ export default function Blogs({ allBlogs = [], isLight = false }) {
                   i + 1
                 }`}
               >
-                <div className="img-box">
-                  <Link
-                    href={`/blog-details${isLight ? "-white" : ""}/${
-                      blog.slug
-                    }`}
-                  >
-                    <Image
-                      className="img-primary hidden-on-mobile"
-                      alt={"blog.altText"}
-                      src={blog.imageSrc}
-                      width={850}
-                      height={462}
-                    />
-                    <Image
-                      className="img-secondary"
-                      alt={"blog.altText"}
-                      src={blog.imageSrc}
-                      width={850}
-                      height={462}
-                    />
-                  </Link>
-                </div>
+                {blog.imageSrc && (
+                  <div className="img-box">
+                    <Link
+                      href={`/blog-details${isLight ? "-white" : ""}/${
+                        blog.slug
+                      }`}
+                    >
+                      <Image
+                        className="img-primary hidden-on-mobile"
+                        alt={blog.title || "Blog"}
+                        src={blog.imageSrc}
+                        width={850}
+                        height={462}
+                      />
+                      <Image
+                        className="img-secondary"
+                        alt={blog.title || "Blog"}
+                        src={blog.imageSrc}
+                        width={850}
+                        height={462}
+                      />
+                    </Link>
+                  </div>
+                )}
                 <div className="blog-classic-content">
                   <div className="blog-classic-tag">
                     <ul>

@@ -15,20 +15,26 @@ export default function Projects({ isLight = false, items = [] }) {
                 <div className="portfoli-card-img">
                   <div className="img-box v2">
                     <Link href={`/project-details/${item.slug}`}>
-                      <Image
-                        className="img-primary hidden-on-mobile"
-                        alt={item.title}
-                        src={item.imageSrc || "/assets/images/portfolio/portfolio-01.jpg"}
-                        width={item.width || 1920}
-                        height={item.height || 1572}
-                      />
-                      <Image
-                        className="img-secondary"
-                        alt={item.title}
-                        src={item.imageSrc || "/assets/images/portfolio/portfolio-01.jpg"}
-                        width={item.width || 1920}
-                        height={item.height || 1572}
-                      />
+                      {item.imageSrc ? (
+                        <>
+                          <Image
+                            className="img-primary hidden-on-mobile"
+                            alt={item.title}
+                            src={item.imageSrc}
+                            width={item.width || 1920}
+                            height={item.height || 1572}
+                          />
+                          <Image
+                            className="img-secondary"
+                            alt={item.title}
+                            src={item.imageSrc}
+                            width={item.width || 1920}
+                            height={item.height || 1572}
+                          />
+                        </>
+                      ) : (
+                        <div style={{ background: "var(--background-color-4)", aspectRatio: "16/9", borderRadius: "8px" }} />
+                      )}
                     </Link>
                   </div>
                   <Link

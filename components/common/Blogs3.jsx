@@ -26,38 +26,40 @@ export default function Blogs3({
               <div
                 className={`blog-card tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-${index + 1}`}
               >
-                <div className="img-box">
-                  <Link href={`/blog-details/${blog.slug}`}>
-                    <Image
-                      className="img-primary hidden-on-mobile"
-                      alt={blog.title || "Blog"}
-                      width={410}
-                      height={294}
-                      src={blog.imageSrc || "/assets/images/blog/blog-01.jpg"}
-                    />
-                    <Image
-                      className="img-secondary"
-                      alt={blog.title || "Blog"}
-                      width={410}
-                      height={294}
-                      src={blog.imageSrc || "/assets/images/blog/blog-01.jpg"}
-                    />
-                  </Link>
-                  <ul className="blog-tags">
-                    <li>
-                      <span className="tag-icon">
-                        <i className="fa-regular fa-user" />
-                      </span>
-                      {blog.author || "Sabbir"}
-                    </li>
-                    <li>
-                      <span className="tag-icon">
-                        <i className="fa-solid fa-calendar-days" />
-                      </span>
-                      {blog.date || new Date(blog.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
-                    </li>
-                  </ul>
-                </div>
+                {blog.imageSrc && (
+                  <div className="img-box">
+                    <Link href={`/blog-details/${blog.slug}`}>
+                      <Image
+                        className="img-primary hidden-on-mobile"
+                        alt={blog.title || "Blog"}
+                        width={410}
+                        height={294}
+                        src={blog.imageSrc}
+                      />
+                      <Image
+                        className="img-secondary"
+                        alt={blog.title || "Blog"}
+                        width={410}
+                        height={294}
+                        src={blog.imageSrc}
+                      />
+                    </Link>
+                    <ul className="blog-tags">
+                      <li>
+                        <span className="tag-icon">
+                          <i className="fa-regular fa-user" />
+                        </span>
+                        {blog.author || "Sabbir"}
+                      </li>
+                      <li>
+                        <span className="tag-icon">
+                          <i className="fa-solid fa-calendar-days" />
+                        </span>
+                        {blog.date || new Date(blog.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                      </li>
+                    </ul>
+                  </div>
+                )}
                 <div className="blog-content-wrap">
                   <h3 className="blog-title v2">
                     <Link className="link" href={`/blog-details/${blog.slug}`}>
