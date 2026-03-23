@@ -22,6 +22,16 @@ model Blog {
   updatedAt   DateTime @updatedAt
 }
 
+model Otp {
+  id        String   @id @default(cuid())
+  email     String
+  code      String
+  attempts  Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
 model Portfolio {
   id          String   @id @default(cuid())
   title       String

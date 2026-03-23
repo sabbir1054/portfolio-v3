@@ -23,19 +23,41 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  const login = async (username, password) => {
-    const res = await fetch("/api/auth", {
+  const sendOTP = async (username, password) => {
+    const res = await fetch("/api/auth/send-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
     });
     const data = await res.json();
+    if (!res.ok) return { success: false, error: data.error };
+    return { success: true };
+  };
+
+  const resendOTP = async () => {
+    const res = await fetch("/api/auth/send-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ resend: true }),
+    });
+    const data = await res.json();
+    if (!res.ok) return { success: false, error: data.error };
+    return { success: true };
+  };
+
+  const verifyOTP = async (otp) => {
+    const res = await fetch("/api/auth/verify-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ otp }),
+    });
+    const data = await res.json();
     if (data.token) {
       setToken(data.token);
       localStorage.setItem("admin_token", data.token);
-      return true;
+      return { success: true };
     }
-    return false;
+    return { success: false, error: data.error };
   };
 
   const logout = () => {
@@ -44,7 +66,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ token, login, logout, loading }}>
+    <AuthContext.Provider value={{ token, sendOTP, resendOTP, verifyOTP, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );
