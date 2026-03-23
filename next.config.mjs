@@ -8,10 +8,14 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "mdsabbir.dev",
-        pathname: "/assets/images/uploads/**",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
       },
     ],
+    minimumCacheTTL: 0,
   },
 };
 
