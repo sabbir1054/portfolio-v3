@@ -5,6 +5,7 @@ const nextConfig = {
     silenceDeprecations: ["mixed-decls", "legacy-js-api"],
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -15,7 +16,6 @@ const nextConfig = {
         hostname: "**",
       },
     ],
-    minimumCacheTTL: 0,
   },
 };
 
