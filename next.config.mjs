@@ -8,7 +8,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**",
+        hostname: "mdsabbir.dev",
+        pathname: "/assets/images/uploads/**",
       },
     ],
   },
