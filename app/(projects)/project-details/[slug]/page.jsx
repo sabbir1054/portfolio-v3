@@ -11,12 +11,21 @@ import CommonComponents from "@/components/common/CommonComponents";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = {
-  title:
-    "Project Details || Personal Portfolio | Freelancer & Developer Portfolio",
-  description:
-    "Personal Portfolio | Freelancer & Developer Portfolio",
-};
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const item = await prisma.portfolio.findUnique({ where: { slug } });
+  if (!item) return { title: "Project Not Found" };
+  return {
+    title: item.title,
+    description: item.description || `Project: ${item.title} by Md Sabbir Hossain`,
+    alternates: { canonical: `/project-details/${slug}` },
+    openGraph: {
+      title: item.title,
+      description: item.description,
+      images: item.imageSrc ? [{ url: item.imageSrc }] : [],
+    },
+  };
+}
 
 export default async function page({ params }) {
   const { slug } = await params;

@@ -9,10 +9,10 @@ import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
 
 export const metadata = {
-  title:
-    "Services || Personal Portfolio | Freelancer & Developer Portfolio",
+  title: "Services",
   description:
-    "Personal Portfolio | Freelancer & Developer Portfolio",
+    "Full stack development services by Md Sabbir Hossain — frontend, backend, database design, cloud deployment, and AI-powered solutions.",
+  alternates: { canonical: "/service" },
 };
 
 export default function page() {

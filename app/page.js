@@ -15,10 +15,10 @@ import { getPortfolios, getBlogs } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title:
-    "Personal Portfolio React Nextjs Template | Freelancer & Developer Portfolio",
+  title: "Md Sabbir Hossain | Full Stack Developer & Cyber Security Researcher",
   description:
-    "Personal Portfolio React Nextjs Template | Freelancer & Developer Portfolio",
+    "Portfolio of Md Sabbir Hossain — Full Stack Developer specializing in React, Next.js, Node.js, PostgreSQL, AWS, and AI integration. Based in Dhaka, Bangladesh.",
+  alternates: { canonical: "/" },
 };
 export default async function Home() {
   const [portfolios, blogs] = await Promise.all([

@@ -11,12 +11,23 @@ import CommonComponents from "@/components/common/CommonComponents";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = {
-  title:
-    "Blog Details || Personal Portfolio | Freelancer & Developer Portfolio",
-  description:
-    "Personal Portfolio | Freelancer & Developer Portfolio",
-};
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const blog = await prisma.blog.findUnique({ where: { slug } });
+  if (!blog) return { title: "Blog Not Found" };
+  return {
+    title: blog.title,
+    description: blog.description || `Blog post: ${blog.title} by Md Sabbir Hossain`,
+    alternates: { canonical: `/blog-details/${slug}` },
+    openGraph: {
+      type: "article",
+      title: blog.title,
+      description: blog.description,
+      images: blog.imageSrc ? [{ url: blog.imageSrc }] : [],
+      authors: [blog.author || "Md Sabbir Hossain"],
+    },
+  };
+}
 
 export default async function page({ params }) {
   const { slug } = await params;

@@ -11,10 +11,10 @@ import { getPortfolios } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title:
-    "Project || Personal Portfolio | Freelancer & Developer Portfolio",
+  title: "Projects",
   description:
-    "Personal Portfolio | Freelancer & Developer Portfolio",
+    "Browse projects by Md Sabbir Hossain — full stack web applications, management systems, e-commerce platforms, and AI-powered solutions.",
+  alternates: { canonical: "/project" },
 };
 
 export default async function page() {

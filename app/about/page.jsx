@@ -13,10 +13,10 @@ import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
 
 export const metadata = {
-  title:
-    "About || Personal Portfolio | Freelancer & Developer Portfolio",
+  title: "About Me",
   description:
-    "Personal Portfolio | Freelancer & Developer Portfolio",
+    "Learn about Md Sabbir Hossain — Full Stack Developer with expertise in React, Next.js, Node.js, and Cyber Security. B.Sc. in Software Engineering from Daffodil International University.",
+  alternates: { canonical: "/about" },
 };
 
 export default function page() {

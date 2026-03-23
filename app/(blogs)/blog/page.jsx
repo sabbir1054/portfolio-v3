@@ -11,10 +11,10 @@ import { getBlogs } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title:
-    "Blog || Personal Portfolio | Freelancer & Developer Portfolio",
+  title: "Blog",
   description:
-    "Personal Portfolio | Freelancer & Developer Portfolio",
+    "Technical articles and insights by Md Sabbir Hossain on full stack development, React, Next.js, Node.js, DevOps, and cyber security.",
+  alternates: { canonical: "/blog" },
 };
 
 export default async function page() {

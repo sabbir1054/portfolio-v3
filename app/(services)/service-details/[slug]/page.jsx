@@ -8,12 +8,15 @@ import Link from "next/link";
 import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
 
-export const metadata = {
-  title:
-    "Service Details || Personal Portfolio | Freelancer & Developer Portfolio",
-  description:
-    "Personal Portfolio | Freelancer & Developer Portfolio",
-};
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const serviceItem = allServices.find((item) => item.slug == slug);
+  return {
+    title: serviceItem?.title || "Service Details",
+    description: serviceItem?.description || "Professional development services by Md Sabbir Hossain.",
+    alternates: { canonical: `/service-details/${slug}` },
+  };
+}
 
 export default async function page({ params }) {
   const { slug } = await params;
