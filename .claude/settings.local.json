@@ -32,7 +32,8 @@
       "Bash(cd \"H:\\\\portfolio\\\\SABBIR 2026\\\\sabbir-portfolio\" && npx prisma db push 2>&1)",
       "Bash(cd:*)",
       "Bash(find components:*)",
-      "Bash(npx prisma:*)"
+      "Bash(npx prisma:*)",
+      "Bash(npm install:*)"
     ]
   }
 }

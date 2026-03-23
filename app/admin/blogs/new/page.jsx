@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/admin/AuthProvider";
 import ImageUpload from "@/components/admin/ImageUpload";
 import TagInput from "@/components/admin/TagInput";
+import RichTextEditor from "@/components/admin/RichTextEditor";
 import Link from "next/link";
 
 export default function NewBlog() {
@@ -73,11 +74,9 @@ export default function NewBlog() {
                 </div>
                 <div className="admin-form-group">
                   <label>Content</label>
-                  <textarea
+                  <RichTextEditor
                     value={form.content}
-                    onChange={(e) => setForm({ ...form, content: e.target.value })}
-                    placeholder="Write your blog content..."
-                    rows={12}
+                    onChange={(value) => setForm({ ...form, content: value })}
                   />
                 </div>
               </div>

@@ -23,6 +23,7 @@
     "prisma": "^6.19.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-quill-new": "^3.8.3",
     "react-toastify": "^11.0.5",
     "sal.js": "^0.8.5",
     "sass": "^1.86.3",
