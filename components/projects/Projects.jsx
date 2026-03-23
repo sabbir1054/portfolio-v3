@@ -1,87 +1,54 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { portfolioItems12 } from "@/data/portfolio";
 
-export default function Projects({ isLight = false }) {
+export default function Projects({ isLight = false, items = [] }) {
+  const portfolioData = items;
+
   return (
     <section className="tmp-latest-portfolio tmp-section-gap">
       <div className="container">
         <div className="row">
-          {portfolioItems12.map((item) => (
-            <div
-              key={item.id} // Use the unique ID as the key
-              className="col-lg-6 col-md-6 col-12" // Static column classes
-            >
+          {portfolioData.map((item, index) => (
+            <div key={item.id || index} className="col-lg-6 col-md-6 col-12">
               <div className="latest-portfolio-card v5 tmp-hover-link">
-                {" "}
-                {/* Static card classes */}
                 <div className="portfoli-card-img">
-                  {" "}
-                  {/* Static img container classes */}
                   <div className="img-box v2">
-                    {" "}
-                    {/* Static img box classes */}
-                    {/* Link wrapper around images - href is static */}
-                    <Link
-                      href={`/project-details${isLight ? "-white" : ""}/${
-                        item.slug
-                      }`}
-                    >
-                      {/* Image Primary - dynamic src, alt, width, height */}
+                    <Link href={`/project-details/${item.slug}`}>
                       <Image
                         className="img-primary hidden-on-mobile"
-                        alt={item.title} // Using item.title for alt
-                        src={item.imageSrc}
-                        width={item.width} // Using width from data
-                        height={item.height} // Using height from data
+                        alt={item.title}
+                        src={item.imageSrc || "/assets/images/portfolio/portfolio-01.jpg"}
+                        width={item.width || 1920}
+                        height={item.height || 1572}
                       />
-                      {/* Image Secondary - dynamic src, alt, width, height */}
                       <Image
                         className="img-secondary"
-                        alt={item.title} // Using item.title for alt
-                        src={item.imageSrc}
-                        width={item.width} // Using width from data
-                        height={item.height} // Using height from data
+                        alt={item.title}
+                        src={item.imageSrc || "/assets/images/portfolio/portfolio-01.jpg"}
+                        width={item.width || 1920}
+                        height={item.height || 1572}
                       />
                     </Link>
                   </div>
-                  {/* Icon Link after img-box - static href, classes, icon */}
-                  {/* Included for all items, matching examples 2-4 */}
                   <Link
-                    href={`/project-details${isLight ? "-white" : ""}/${
-                      item.slug
-                    }`}
+                    href={`/project-details/${item.slug}`}
                     className="img-link-icon"
                   >
                     <i className="fa-solid fa-arrow-up-long" />
                   </Link>
                 </div>
                 <div className="portfolio-card-content-wrap">
-                  {" "}
-                  {/* Static content wrap classes */}
                   <div className="content-left">
-                    {" "}
-                    {/* Static content left classes */}
                     <h3 className="portfolio-card-title">
-                      {" "}
-                      {/* Static title classes */}
-                      {/* Title Link - static classes & href, dynamic text */}
                       <Link
                         className="link"
-                        href={`/project-details${isLight ? "-white" : ""}/${
-                          item.slug
-                        }`}
+                        href={`/project-details/${item.slug}`}
                       >
-                        {item.title} {/* Dynamic title text from data */}
+                        {item.title}
                       </Link>
                     </h3>
-                    <p className="portfoli-card-para">
-                      {" "}
-                      {/* Static paragraph classes */}
-                      {item.description}{" "}
-                      {/* Dynamic paragraph text from data */}
-                    </p>
+                    <p className="portfoli-card-para">{item.description}</p>
                   </div>
                 </div>
               </div>

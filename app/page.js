@@ -10,6 +10,9 @@ import React from "react";
 import Footer1 from "@/components/footers/Footer1";
 import Copyright from "@/components/footers/Copyright";
 import Header5 from "@/components/headers/Header5";
+import { getPortfolios, getBlogs } from "@/lib/db";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title:
@@ -17,7 +20,12 @@ export const metadata = {
   description:
     "Personal Portfolio React Nextjs Template | Freelancer & Developer Portfolio",
 };
-export default function Home() {
+export default async function Home() {
+  const [portfolios, blogs] = await Promise.all([
+    getPortfolios(),
+    getBlogs(),
+  ]);
+
   return (
     <>
       <Header3 />
@@ -25,9 +33,12 @@ export default function Home() {
       <div className="page-with-left-header">
         <Hero />
         <Services parentClass="latest-service-area pt--40" />
-        <Portfolio />
+        <Portfolio items={portfolios.slice(0, 4)} />
         <Education />
-        <Blogs3 parentClass="blog-and-news-are tmp-section-gapTop" />
+        <Blogs3
+          parentClass="blog-and-news-are tmp-section-gapTop"
+          items={blogs.slice(0, 3)}
+        />
         <Contact parentClass="get-in-touch-area tmp-section-gap" />
         <Footer1 />
         <Copyright /> <CommonComponents />

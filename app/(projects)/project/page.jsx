@@ -6,6 +6,9 @@ import Projects from "@/components/projects/Projects";
 import Link from "next/link";
 import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
+import { getPortfolios } from "@/lib/db";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title:
@@ -14,7 +17,9 @@ export const metadata = {
     "Personal Portfolio | Freelancer & Developer Portfolio",
 };
 
-export default function page() {
+export default async function page() {
+  const portfolios = await getPortfolios();
+
   return (
     <>
       <Header3 />
@@ -40,7 +45,7 @@ export default function page() {
             </div>
           </div>
         </div>
-        <Projects />
+        <Projects items={portfolios} />
         <Footer1 />
         <Copyright />
         <CommonComponents />

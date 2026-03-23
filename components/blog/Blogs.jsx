@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { blogData } from "@/data/blogs";
 import BlogSidebar from "./BlogSidebar";
 
 import Link from "next/link";
-export default function Blogs({ allBlogs = blogData, isLight = false }) {
+export default function Blogs({ allBlogs = [], isLight = false }) {
   return (
     <div className="blog-classic-area-wrapper tmp-section-gap">
       <div className="container">

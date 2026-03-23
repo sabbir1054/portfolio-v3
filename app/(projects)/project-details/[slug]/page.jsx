@@ -3,10 +3,13 @@ import Footer1 from "@/components/footers/Footer1";
 import Header3 from "@/components/headers/Header3";
 import Header5 from "@/components/headers/Header5";
 import ProjectDetails from "@/components/projects/ProjectDetails";
-import { allPortfolioItems } from "@/data/portfolio";
+import prisma from "@/lib/prisma";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title:
@@ -17,8 +20,10 @@ export const metadata = {
 
 export default async function page({ params }) {
   const { slug } = await params;
-  const portfolioItem =
-    allPortfolioItems.find((item) => item.slug == slug) || allPortfolioItems[0];
+
+  const portfolioItem = await prisma.portfolio.findUnique({ where: { slug } });
+  if (!portfolioItem) notFound();
+
   return (
     <>
       <Header3 />

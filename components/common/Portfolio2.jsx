@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-
-import { portfolioItems2 } from "@/data/portfolio";
-
 import Link from "next/link";
-export default function Portfolio({ isLight = false }) {
+
+export default function Portfolio({ isLight = false, items = [] }) {
+  const portfolioData = items;
+
   return (
     <div
       className="latest-portfolio-area custom-column-grid tmp-section-gapTop"
@@ -20,16 +20,15 @@ export default function Portfolio({ isLight = false }) {
             Exceptional
           </h2>
           <p className="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">
-            Business consulting consultants provide expert advice and guida
-            businesses to help them improve their performance, efficiency, and
-            organizational
+            A curated selection of my recent projects showcasing full stack
+            development, from responsive frontends to scalable backend systems.
           </p>
         </div>
         <div className="row">
-          {portfolioItems2.map((item) => (
-            <div className="col-lg-6 col-sm-6" key={item.id}>
+          {portfolioData.map((item, index) => (
+            <div className="col-lg-6 col-sm-6" key={item.id || index}>
               <div
-                className={`latest-portfolio-card tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-${item.animationOrder}`}
+                className={`latest-portfolio-card tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-${index + 1}`}
               >
                 <div className="portfoli-card-img">
                   <div className="img-box v2">
@@ -39,10 +38,10 @@ export default function Portfolio({ isLight = false }) {
                     >
                       <Image
                         className="w-100"
-                        alt="Thumbnail"
-                        src={item.imageSrc}
-                        width={item.width}
-                        height={item.height}
+                        alt={item.title || "Thumbnail"}
+                        src={item.imageSrc || "/assets/images/portfolio/portfolio-01.jpg"}
+                        width={item.width || 1920}
+                        height={item.height || 1572}
                       />
                     </Link>
                   </div>
