@@ -11,20 +11,44 @@ import CommonComponents from "@/components/common/CommonComponents";
 
 export const dynamic = "force-dynamic";
 
+const SITE_URL = "https://mdsabbir.dev";
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const blog = await prisma.blog.findUnique({ where: { slug } });
   if (!blog) return { title: "Blog Not Found" };
+
+  const description = blog.description || `Blog post: ${blog.title} by Md Sabbir Hossain`;
+  const imageUrl = blog.imageSrc
+    ? blog.imageSrc.startsWith("http") ? blog.imageSrc : `${SITE_URL}${blog.imageSrc}`
+    : `${SITE_URL}/assets/images/banner/banner-user-image-04.png`;
+
   return {
     title: blog.title,
-    description: blog.description || `Blog post: ${blog.title} by Md Sabbir Hossain`,
+    description,
     alternates: { canonical: `/blog-details/${slug}` },
     openGraph: {
       type: "article",
       title: blog.title,
-      description: blog.description,
-      images: blog.imageSrc ? [{ url: blog.imageSrc }] : [],
+      description,
+      url: `${SITE_URL}/blog-details/${slug}`,
+      siteName: "mdsabbir.dev",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
       authors: [blog.author || "Md Sabbir Hossain"],
+      publishedTime: blog.createdAt?.toISOString(),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description,
+      images: [imageUrl],
     },
   };
 }

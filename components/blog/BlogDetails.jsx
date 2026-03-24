@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import BlogSidebar from "./BlogSidebar";
+import ShareButtons from "./ShareButtons";
 import { slugify } from "@/utlis/slugify";
 
 export default function BlogDetails({ blog, isLight = false }) {
@@ -61,9 +62,9 @@ export default function BlogDetails({ blog, isLight = false }) {
                 )}
               </div>
 
-              {blogTags.length > 0 && (
-                <div className="blog-details-discription">
-                  <div className="blog-details-navigation">
+              <div className="blog-details-discription">
+                <div className="blog-details-navigation">
+                  {blogTags.length > 0 && (
                     <div className="navigation-tags">
                       <h3 className="tag-title">Tags:</h3>
                       <ul>
@@ -78,23 +79,11 @@ export default function BlogDetails({ blog, isLight = false }) {
                         ))}
                       </ul>
                     </div>
-                    <div className="social-link footer">
-                      <a href="https://github.com/sabbir1054" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-github" />
-                      </a>
-                      <a href="https://www.linkedin.com/in/md-sabbir-hossain-1054" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-linkedin-in" />
-                      </a>
-                      <a href="https://www.upwork.com/freelancers/~01a76df77f79bd0eaa" target="_blank" rel="noopener noreferrer">
-                        <span className="upwork-icon">UP</span>
-                      </a>
-                      <a href="https://www.facebook.com/sabbir.1054" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-facebook-f" />
-                      </a>
-                    </div>
-                  </div>
+                  )}
                 </div>
-              )}
+
+                <ShareButtons title={blog.title} slug={blog.slug} />
+              </div>
             </div>
           </div>
           <div className="col-lg-4">
