@@ -25,14 +25,14 @@ export async function POST(request) {
   }
 
   const filename = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
-  const uploadDir = path.join(process.cwd(), "public", "assets", "images", "uploads");
+  const uploadDir = path.join(process.cwd(), "uploads");
   await mkdir(uploadDir, { recursive: true });
 
   const filepath = path.join(uploadDir, filename);
   await writeFile(filepath, buffer);
 
   return NextResponse.json({
-    url: `/assets/images/uploads/${filename}`,
+    url: `/api/uploads/${filename}`,
     filename,
   });
 }

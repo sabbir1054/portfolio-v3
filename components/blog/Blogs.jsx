@@ -4,6 +4,8 @@ import BlogSidebar from "./BlogSidebar";
 
 import Link from "next/link";
 export default function Blogs({ allBlogs = [], isLight = false }) {
+  console.log(allBlogs);
+  
   return (
     <div className="blog-classic-area-wrapper tmp-section-gap">
       <div className="container">
