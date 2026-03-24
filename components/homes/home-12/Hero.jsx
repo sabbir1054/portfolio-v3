@@ -1,6 +1,6 @@
 import ParticleComponent from "@/components/common/ParticleComponent";
 import TyperComponent from "@/components/common/TyperComponent";
-import Image from "next/image";
+import ImageWithFallback from "@/components/common/ImageWithFallback";
 export default function Hero({ isLight = false }) {
   return (
     <div className="tmp-banner-one-area banner-twelve-area style-3" id="home">
@@ -10,8 +10,8 @@ export default function Hero({ isLight = false }) {
             <div className="col-lg-12">
               <div className="inner text-center">
                 <div className="thumbnail-author">
-                  <Image
-                    alt="personal-logo"
+                  <ImageWithFallback
+                    alt="Md Sabbir Hossain"
                     src="/assets/images/banner/banner-user-image-04.png"
                     width={525}
                     height={525}

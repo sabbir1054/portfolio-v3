@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import OnepageNav2 from "./OnepageNav2";
+import ImageWithFallback from "@/components/common/ImageWithFallback";
 export default function Header3() {
   return (
     <div className="d-none d-xl-block header-style-2 header-left">
@@ -8,8 +8,8 @@ export default function Header3() {
         <div className="inner-wrapper">
           <div className="logo-area">
             <Link href={`/`}>
-              <Image
-                alt="personal-logo"
+              <ImageWithFallback
+                alt="Md Sabbir Hossain"
                 src="/assets/images/banner/header-left-user.png"
                 width={350}
                 height={350}
