@@ -35,7 +35,8 @@
       "Bash(npx prisma:*)",
       "Bash(npm install:*)",
       "Bash(mkdir -p uploads)",
-      "Bash(cp public/assets/images/uploads/* uploads/)"
+      "Bash(cp public/assets/images/uploads/* uploads/)",
+      "Bash(node -e \"console.log\\(require\\(''next/package.json''\\).version\\)\")"
     ]
   }
 }
