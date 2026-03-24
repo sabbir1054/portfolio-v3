@@ -139,6 +139,28 @@
   }
 }
 
+// Blog details layout fix
+.blog-details-left-area {
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  .thumbnail-top img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  pre {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 // Blog rich content rendering
 .blog-details-discription .disc {
   h1, h2, h3, h4 {
