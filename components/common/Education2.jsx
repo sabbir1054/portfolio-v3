@@ -113,6 +113,19 @@ export default function Education() {
                 </h2>
                 <div className="experience-content tmp-scroll-trigger tmp-fade-in animation-order-1">
                   <p className="ex-subtitle">experience</p>
+                  <h2 className="ex-name">
+                    Code Studio (March 2026 - Present)
+                  </h2>
+                  <h3 className="ex-title">Software Engineer</h3>
+                  <p className="ex-para">
+                    Building and maintaining scalable web applications at a
+                    software for Code studio, collaborating with
+                    cross-functional teams to architect solutions, write clean
+                    code, and ship features across the full stack.
+                  </p>
+                </div>
+                <div className="experience-content tmp-scroll-trigger tmp-fade-in animation-order-1">
+                  <p className="ex-subtitle">experience</p>
                   <h2 className="ex-name">Freelancer (Oct 2025 - Present)</h2>
                   <h3 className="ex-title">Full Stack Developer</h3>
                   <p className="ex-para">
