@@ -1,7 +1,7 @@
 "use client";
-import { useState, useRef } from "react";
 import { footerLinks, footerLinksWhite } from "@/data/footerLinks";
 import Link from "next/link";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 
 export default function Footer1() {
@@ -59,9 +59,29 @@ export default function Footer1() {
                     onSubmit={handleSubscribe}
                     className="newsletter-form-1 mt--40"
                   >
-                    <input type="email" name="email" placeholder="Email Address" required />
-                    <button type="submit" className="form-icon" disabled={sending} style={{ background: "none", border: "none", cursor: "pointer" }}>
-                      <i className={sending ? "fa-solid fa-spinner fa-spin" : "fa-regular fa-envelope"} />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email Address"
+                      required
+                    />
+                    <button
+                      type="submit"
+                      className="form-icon"
+                      disabled={sending}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <i
+                        className={
+                          sending
+                            ? "fa-solid fa-spinner fa-spin"
+                            : "fa-regular fa-envelope"
+                        }
+                      />
                     </button>
                   </form>
                 </div>
@@ -93,7 +113,9 @@ export default function Footer1() {
                       <span className="ft-icon">
                         <i className="fa-solid fa-envelope" />
                       </span>
-                      <a href="mailto:mdsabbir1054@gmail.com">mdsabbir1054@gmail.com</a>
+                      <a href="mailto:mdsabbir1054@gmail.com">
+                        mdsabbir1054@gmail.com
+                      </a>
                     </li>
                     <li>
                       <span className="ft-icon">
@@ -109,16 +131,32 @@ export default function Footer1() {
                     </li>
                   </ul>
                   <div className="social-link footer">
-                    <a href="https://github.com/sabbir1054" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://github.com/sabbir1054"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fa-brands fa-github" />
                     </a>
-                    <a href="https://www.linkedin.com/in/md-sabbir-hossain-1054" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.linkedin.com/in/md--sabbir-hossain"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fa-brands fa-linkedin-in" />
                     </a>
-                    <a href="https://www.upwork.com/freelancers/~01a76df77f79bd0eaa" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.upwork.com/freelancers/~01a76df77f79bd0eaa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <span className="upwork-icon">UP</span>
                     </a>
-                    <a href="https://www.facebook.com/sabbir.1054" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.facebook.com/sabbir.1054"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fa-brands fa-facebook-f" />
                     </a>
                   </div>

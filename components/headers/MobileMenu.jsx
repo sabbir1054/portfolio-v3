@@ -3,7 +3,7 @@ import { menuItems } from "@/data/menu";
 import { closeMobilemenu } from "@/utlis/toggleMobilemenu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function MobileMenu() {
   const pathname = usePathname();
@@ -51,7 +51,7 @@ export default function MobileMenu() {
                   item.submenu
                     ? item.submenu.some(
                         (elm) =>
-                          elm.href.split("/")[1] == pathname.split("/")[1]
+                          elm.href.split("/")[1] == pathname.split("/")[1],
                       )
                       ? "menu-item-open"
                       : ""
@@ -113,16 +113,32 @@ export default function MobileMenu() {
           <div className="social-wrapper mt--40">
             <span className="subtitle">find with me</span>
             <div className="social-link">
-              <a href="https://github.com/sabbir1054" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/sabbir1054"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fa-brands fa-github" />
               </a>
-              <a href="https://www.linkedin.com/in/md-sabbir-hossain-1054" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.linkedin.com/in/md--sabbir-hossain"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fa-brands fa-linkedin-in" />
               </a>
-              <a href="https://www.upwork.com/freelancers/~01a76df77f79bd0eaa" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.upwork.com/freelancers/~01a76df77f79bd0eaa"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="upwork-icon">UP</span>
               </a>
-              <a href="https://www.facebook.com/sabbir.1054" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.facebook.com/sabbir.1054"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fa-brands fa-facebook-f" />
               </a>
             </div>

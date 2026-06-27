@@ -1,6 +1,6 @@
+import ImageWithFallback from "@/components/common/ImageWithFallback";
 import Link from "next/link";
 import OnepageNav2 from "./OnepageNav2";
-import ImageWithFallback from "@/components/common/ImageWithFallback";
 export default function Header3() {
   return (
     <div className="d-none d-xl-block header-style-2 header-left">
@@ -28,16 +28,32 @@ export default function Header3() {
             <div className="social-share-style-1">
               <span className="title">Find With Me</span>
               <div className="social-link">
-                <a href="https://github.com/sabbir1054" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/sabbir1054"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fa-brands fa-github" />
                 </a>
-                <a href="https://www.linkedin.com/in/md-sabbir-hossain-1054" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/md--sabbir-hossain"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fa-brands fa-linkedin-in" />
                 </a>
-                <a href="https://www.upwork.com/freelancers/~01a76df77f79bd0eaa" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.upwork.com/freelancers/~01a76df77f79bd0eaa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span className="upwork-icon">UP</span>
                 </a>
-                <a href="https://www.facebook.com/sabbir.1054" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.facebook.com/sabbir.1054"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fa-brands fa-facebook-f" />
                 </a>
               </div>

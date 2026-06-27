@@ -1,16 +1,17 @@
-import "../public/assets/scss/main.scss";
-import "odometer/themes/odometer-theme-default.css";
-import "react-toastify/dist/ReactToastify.css";
 import LayoutWrapper from "@/components/common/LayoutWrapper";
 import Script from "next/script";
+import "odometer/themes/odometer-theme-default.css";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../public/assets/scss/main.scss";
 
 const SITE_URL = "https://mdsabbir.dev";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Md Sabbir Hossain | Full Stack Developer & Cyber Security Researcher",
+    default:
+      "Md Sabbir Hossain | Full Stack Developer & Cyber Security Researcher",
     template: "%s | mdsabbir.dev",
   },
   description:
@@ -92,7 +93,7 @@ export default function RootLayout({ children }) {
     },
     sameAs: [
       "https://github.com/sabbir1054",
-      "https://www.linkedin.com/in/md-sabbir-hossain-1054",
+      "https://www.linkedin.com/in/md--sabbir-hossain",
       "https://www.upwork.com/freelancers/~01a76df77f79bd0eaa",
       "https://www.facebook.com/sabbir.1054",
     ],
@@ -101,8 +102,16 @@ export default function RootLayout({ children }) {
       name: "Daffodil International University",
     },
     knowsAbout: [
-      "React", "Next.js", "Node.js", "Express", "PostgreSQL",
-      "MongoDB", "Prisma", "AWS", "Docker", "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "MongoDB",
+      "Prisma",
+      "AWS",
+      "Docker",
+      "TypeScript",
     ],
   };
 
@@ -110,7 +119,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"

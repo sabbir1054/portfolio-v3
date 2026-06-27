@@ -1,8 +1,8 @@
 "use client";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import { slugify } from "@/utlis/slugify";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function BlogSidebar({ isLight = false }) {
   const [blogs, setBlogs] = useState([]);
@@ -65,14 +65,20 @@ export default function BlogSidebar({ isLight = false }) {
               <div key={post.id} className="single-post-card tmp-hover-link">
                 {post.imageSrc && (
                   <div className="single-post-card-img">
-                    <Image alt={post.title} src={post.imageSrc} width={82} height={92} />
+                    <Image
+                      alt={post.title}
+                      src={post.imageSrc}
+                      width={82}
+                      height={92}
+                    />
                   </div>
                 )}
                 <div className="single-post-right">
                   <div className="single-post-top">
                     <i className="fa-regular fa-folder-open" />
                     <p className="post-title">
-                      {(Array.isArray(post.categories) && post.categories[0]) || "Blog"}
+                      {(Array.isArray(post.categories) && post.categories[0]) ||
+                        "Blog"}
                     </p>
                   </div>
                   <h3 className="post-title">
@@ -106,16 +112,32 @@ export default function BlogSidebar({ isLight = false }) {
                 <h3 className="title">Md Sabbir Hossain</h3>
                 <p className="para">Full Stack Developer</p>
                 <div className="social-link">
-                  <a href="https://github.com/sabbir1054" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://github.com/sabbir1054"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fa-brands fa-github" />
                   </a>
-                  <a href="https://www.linkedin.com/in/md-sabbir-hossain-1054" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.linkedin.com/in/md--sabbir-hossain"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fa-brands fa-linkedin-in" />
                   </a>
-                  <a href="https://www.upwork.com/freelancers/~01a76df77f79bd0eaa" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.upwork.com/freelancers/~01a76df77f79bd0eaa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <span className="upwork-icon">UP</span>
                   </a>
-                  <a href="https://www.facebook.com/sabbir.1054" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.facebook.com/sabbir.1054"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fa-brands fa-facebook-f" />
                   </a>
                 </div>
