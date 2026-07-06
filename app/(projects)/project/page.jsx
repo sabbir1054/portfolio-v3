@@ -10,11 +10,37 @@ import { getPortfolios } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
+const SITE_URL = "https://mdsabbir.dev";
+
 export const metadata = {
   title: "Projects",
   description:
     "Browse projects by Md Sabbir Hossain — full stack web applications, management systems, e-commerce platforms, and AI-powered solutions.",
   alternates: { canonical: "/project" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: `${SITE_URL}/project`,
+    siteName: "mdsabbir.dev",
+    title: "Projects | Md Sabbir Hossain's Portfolio",
+    description:
+      "Explore my full stack web applications, management systems, e-commerce platforms, and AI-powered solutions built with React, Next.js, and Node.js.",
+    images: [
+      {
+        url: "/assets/images/banner/banner-user-image-04.png",
+        width: 525,
+        height: 525,
+        alt: "Md Sabbir Hossain - Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects | Md Sabbir Hossain's Portfolio",
+    description:
+      "Check out my portfolio of web applications and development projects.",
+    images: ["/assets/images/banner/banner-user-image-04.png"],
+  },
 };
 
 export default async function page() {

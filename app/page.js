@@ -14,11 +14,38 @@ import { getPortfolios, getBlogs } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
+const SITE_URL = "https://mdsabbir.dev";
+
 export const metadata = {
   title: "Md Sabbir Hossain | Full Stack Developer & Cyber Security Researcher",
   description:
     "Portfolio of Md Sabbir Hossain — Full Stack Developer specializing in React, Next.js, Node.js, PostgreSQL, AWS, and AI integration. Based in Dhaka, Bangladesh.",
   alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: "mdsabbir.dev",
+    title: "Md Sabbir Hossain | Full Stack Developer",
+    description:
+      "Full Stack Developer specializing in React, Next.js, Node.js, and cloud technologies. Building scalable, production-grade web applications.",
+    images: [
+      {
+        url: "/assets/images/banner/banner-user-image-04.png",
+        width: 525,
+        height: 525,
+        alt: "Md Sabbir Hossain - Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Md Sabbir Hossain | Full Stack Developer",
+    description:
+      "Full Stack Developer specializing in React, Next.js, Node.js, and cloud technologies.",
+    images: ["/assets/images/banner/banner-user-image-04.png"],
+    creator: "@sabbir1054",
+  },
 };
 export default async function Home() {
   const [portfolios, blogs] = await Promise.all([

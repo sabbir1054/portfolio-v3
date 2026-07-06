@@ -12,11 +12,37 @@ import Link from "next/link";
 import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
 
+const SITE_URL = "https://mdsabbir.dev";
+
 export const metadata = {
   title: "About Me",
   description:
     "Learn about Md Sabbir Hossain — Full Stack Developer with expertise in React, Next.js, Node.js, and Cyber Security. B.Sc. in Software Engineering from Daffodil International University.",
   alternates: { canonical: "/about" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: `${SITE_URL}/about`,
+    siteName: "mdsabbir.dev",
+    title: "About Md Sabbir Hossain | Full Stack Developer",
+    description:
+      "Discover my journey as a Full Stack Developer specializing in React, Next.js, Node.js, cloud technologies, and cybersecurity research.",
+    images: [
+      {
+        url: "/assets/images/banner/banner-user-image-04.png",
+        width: 525,
+        height: 525,
+        alt: "Md Sabbir Hossain - Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Md Sabbir Hossain | Full Stack Developer",
+    description:
+      "Learn about my expertise in full stack development, cloud deployment, and cybersecurity research.",
+    images: ["/assets/images/banner/banner-user-image-04.png"],
+  },
 };
 
 export default function page() {

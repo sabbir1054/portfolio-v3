@@ -10,11 +10,37 @@ import { getBlogs } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
+const SITE_URL = "https://mdsabbir.dev";
+
 export const metadata = {
   title: "Blog",
   description:
     "Technical articles and insights by Md Sabbir Hossain on full stack development, React, Next.js, Node.js, DevOps, and cyber security.",
   alternates: { canonical: "/blog" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: `${SITE_URL}/blog`,
+    siteName: "mdsabbir.dev",
+    title: "Blog | Md Sabbir Hossain's Technical Insights",
+    description:
+      "Explore technical articles on full stack development, React, Next.js, Node.js, DevOps, database design, and cybersecurity research.",
+    images: [
+      {
+        url: "/assets/images/banner/banner-user-image-04.png",
+        width: 525,
+        height: 525,
+        alt: "Md Sabbir Hossain - Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Md Sabbir Hossain's Technical Insights",
+    description:
+      "Read my technical articles on full stack development, React, Next.js, Node.js, and more.",
+    images: ["/assets/images/banner/banner-user-image-04.png"],
+  },
 };
 
 export default async function page() {

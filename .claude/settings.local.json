@@ -36,7 +36,9 @@
       "Bash(npm install:*)",
       "Bash(mkdir -p uploads)",
       "Bash(cp public/assets/images/uploads/* uploads/)",
-      "Bash(node -e \"console.log\\(require\\(''next/package.json''\\).version\\)\")"
+      "Bash(node -e \"console.log\\(require\\(''next/package.json''\\).version\\)\")",
+      "Bash(pkill *)",
+      "Bash(grep -E '\\\\.md$|og-utils')"
     ]
   }
 }

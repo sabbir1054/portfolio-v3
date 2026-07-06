@@ -8,13 +8,45 @@ import Link from "next/link";
 import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
 
+const SITE_URL = "https://mdsabbir.dev";
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const serviceItem = allServices.find((item) => item.slug == slug);
+
+  if (!serviceItem) {
+    return { title: "Service Not Found" };
+  }
+
+  const imageUrl = `${SITE_URL}/assets/images/banner/banner-user-image-04.png`;
+  const serviceDescription = serviceItem?.description || `Professional ${serviceItem?.title} services by Md Sabbir Hossain.`;
+
   return {
-    title: serviceItem?.title || "Service Details",
-    description: serviceItem?.description || "Professional development services by Md Sabbir Hossain.",
+    title: serviceItem.title,
+    description: serviceDescription,
     alternates: { canonical: `/service-details/${slug}` },
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: `${SITE_URL}/service-details/${slug}`,
+      siteName: "mdsabbir.dev",
+      title: `${serviceItem.title} | Md Sabbir Hossain`,
+      description: serviceDescription,
+      images: [
+        {
+          url: imageUrl,
+          width: 525,
+          height: 525,
+          alt: `${serviceItem.title} - Md Sabbir Hossain`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${serviceItem.title} | Md Sabbir Hossain`,
+      description: serviceDescription,
+      images: [imageUrl],
+    },
   };
 }
 

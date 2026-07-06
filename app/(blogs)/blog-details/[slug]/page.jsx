@@ -23,12 +23,13 @@ export async function generateMetadata({ params }) {
     ? blog.imageSrc.startsWith("http") ? blog.imageSrc : `${SITE_URL}${blog.imageSrc}`
     : `${SITE_URL}/assets/images/banner/banner-user-image-04.png`;
 
-  return {
+  const metadata = {
     title: blog.title,
     description,
     alternates: { canonical: `/blog-details/${slug}` },
     openGraph: {
       type: "article",
+      locale: "en_US",
       title: blog.title,
       description,
       url: `${SITE_URL}/blog-details/${slug}`,
@@ -43,14 +44,22 @@ export async function generateMetadata({ params }) {
       ],
       authors: [blog.author || "Md Sabbir Hossain"],
       publishedTime: blog.createdAt?.toISOString(),
+      tags: blog.tags || [],
     },
     twitter: {
       card: "summary_large_image",
       title: blog.title,
       description,
       images: [imageUrl],
+      creator: "@sabbir1054",
     },
   };
+
+  if (blog.updatedAt) {
+    metadata.openGraph.modifiedTime = blog.updatedAt.toISOString();
+  }
+
+  return metadata;
 }
 
 export default async function page({ params }) {

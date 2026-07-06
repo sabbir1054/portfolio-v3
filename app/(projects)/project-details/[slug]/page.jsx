@@ -11,18 +11,43 @@ import CommonComponents from "@/components/common/CommonComponents";
 
 export const dynamic = "force-dynamic";
 
+const SITE_URL = "https://mdsabbir.dev";
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const item = await prisma.portfolio.findUnique({ where: { slug } });
   if (!item) return { title: "Project Not Found" };
+
+  const description = item.description || `Project: ${item.title} by Md Sabbir Hossain`;
+  const imageUrl = item.imageSrc
+    ? item.imageSrc.startsWith("http") ? item.imageSrc : `${SITE_URL}${item.imageSrc}`
+    : `${SITE_URL}/assets/images/banner/banner-user-image-04.png`;
+
   return {
     title: item.title,
-    description: item.description || `Project: ${item.title} by Md Sabbir Hossain`,
+    description,
     alternates: { canonical: `/project-details/${slug}` },
     openGraph: {
-      title: item.title,
-      description: item.description,
-      images: item.imageSrc ? [{ url: item.imageSrc }] : [],
+      type: "website",
+      locale: "en_US",
+      url: `${SITE_URL}/project-details/${slug}`,
+      siteName: "mdsabbir.dev",
+      title: `${item.title} | Md Sabbir Hossain's Projects`,
+      description,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: item.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${item.title} | Md Sabbir Hossain's Projects`,
+      description,
+      images: [imageUrl],
     },
   };
 }

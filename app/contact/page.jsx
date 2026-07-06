@@ -7,11 +7,37 @@ import Link from "next/link";
 import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
 
+const SITE_URL = "https://mdsabbir.dev";
+
 export const metadata = {
   title: "Contact",
   description:
     "Get in touch with Md Sabbir Hossain for full stack development projects, freelance work, or collaboration. Based in Dhaka, Bangladesh.",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: `${SITE_URL}/contact`,
+    siteName: "mdsabbir.dev",
+    title: "Contact Md Sabbir Hossain | Full Stack Developer",
+    description:
+      "Get in touch with me for freelance projects, full stack development work, or collaboration. Available for remote and contract work.",
+    images: [
+      {
+        url: "/assets/images/banner/banner-user-image-04.png",
+        width: 525,
+        height: 525,
+        alt: "Md Sabbir Hossain - Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Md Sabbir Hossain | Full Stack Developer",
+    description:
+      "Connect with me for freelance projects, full stack development, or business inquiries.",
+    images: ["/assets/images/banner/banner-user-image-04.png"],
+  },
 };
 
 export default function page() {

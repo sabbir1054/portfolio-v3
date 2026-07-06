@@ -9,12 +9,50 @@ import Link from "next/link";
 import React from "react";
 import CommonComponents from "@/components/common/CommonComponents";
 
-export const metadata = {
-  title:
-    "Blog || Personal Portfolio | Freelancer & Developer Portfolio",
-  description:
-    "Personal Portfolio | Freelancer & Developer Portfolio",
-};
+const SITE_URL = "https://mdsabbir.dev";
+
+export async function generateMetadata({ params }) {
+  const { tag } = await params;
+  const decodedTag = decodeURIComponent(tag);
+  let tagTitle = "";
+
+  allBlogs[0]?.tags?.forEach((element) => {
+    if (slugify(element) == tag) {
+      tagTitle = element;
+    }
+  });
+
+  const displayTitle = tagTitle || decodedTag;
+  const description = `Blog articles tagged with ${displayTitle} by Md Sabbir Hossain`;
+
+  return {
+    title: `${displayTitle} - Blog Tag`,
+    description,
+    alternates: { canonical: `/blog/tag/${tag}` },
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: `${SITE_URL}/blog/tag/${tag}`,
+      siteName: "mdsabbir.dev",
+      title: `${displayTitle} - Blog | Md Sabbir Hossain`,
+      description,
+      images: [
+        {
+          url: "/assets/images/banner/banner-user-image-04.png",
+          width: 525,
+          height: 525,
+          alt: `${displayTitle} - Md Sabbir Hossain's Blog`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${displayTitle} - Blog | Md Sabbir Hossain`,
+      description,
+      images: ["/assets/images/banner/banner-user-image-04.png"],
+    },
+  };
+}
 
 export default async function TagPage({ params }) {
   let tagTitle = "";
