@@ -27,7 +27,7 @@ export const metadata = {
       "Explore technical articles on full stack development, React, Next.js, Node.js, DevOps, database design, and cybersecurity research.",
     images: [
       {
-        url: "/assets/images/banner/banner-user-image-04.png",
+        url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
         alt: "Md Sabbir Hossain - Full Stack Developer",
@@ -39,7 +39,7 @@ export const metadata = {
     title: "Blog | Md Sabbir Hossain's Technical Insights",
     description:
       "Read my technical articles on full stack development, React, Next.js, Node.js, and more.",
-    images: ["/assets/images/banner/banner-user-image-04.png"],
+    images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
   },
 };
 

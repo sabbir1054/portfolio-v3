@@ -27,7 +27,7 @@ export const metadata = {
       "Explore my full stack web applications, management systems, e-commerce platforms, and AI-powered solutions built with React, Next.js, and Node.js.",
     images: [
       {
-        url: "/assets/images/banner/banner-user-image-04.png",
+        url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
         alt: "Md Sabbir Hossain - Full Stack Developer",
@@ -39,7 +39,7 @@ export const metadata = {
     title: "Projects | Md Sabbir Hossain's Portfolio",
     description:
       "Check out my portfolio of web applications and development projects.",
-    images: ["/assets/images/banner/banner-user-image-04.png"],
+    images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
   },
 };
 

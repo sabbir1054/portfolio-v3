@@ -29,7 +29,7 @@ export const metadata = {
       "Discover my journey as a Full Stack Developer specializing in React, Next.js, Node.js, cloud technologies, and cybersecurity research.",
     images: [
       {
-        url: "/assets/images/banner/banner-user-image-04.png",
+        url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
         alt: "Md Sabbir Hossain - Full Stack Developer",
@@ -41,7 +41,7 @@ export const metadata = {
     title: "About Md Sabbir Hossain | Full Stack Developer",
     description:
       "Learn about my expertise in full stack development, cloud deployment, and cybersecurity research.",
-    images: ["/assets/images/banner/banner-user-image-04.png"],
+    images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
   },
 };
 

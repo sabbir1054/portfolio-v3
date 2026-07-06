@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
       description,
       images: [
         {
-          url: "/assets/images/banner/banner-user-image-04.png",
+          url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
           width: 525,
           height: 525,
           alt: `${displayTitle} - Md Sabbir Hossain's Blog`,
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: `${displayTitle} - Blog | Md Sabbir Hossain`,
       description,
-      images: ["/assets/images/banner/banner-user-image-04.png"],
+      images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
     },
   };
 }

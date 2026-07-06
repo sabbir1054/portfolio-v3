@@ -25,7 +25,7 @@ export const metadata = {
       "Comprehensive full stack development services: frontend, backend, database design, cloud deployment, AI integration, and full stack consulting.",
     images: [
       {
-        url: "/assets/images/banner/banner-user-image-04.png",
+        url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
         alt: "Md Sabbir Hossain - Full Stack Developer",
@@ -37,7 +37,7 @@ export const metadata = {
     title: "Services | Md Sabbir Hossain's Development Services",
     description:
       "Full stack development services including frontend, backend, database design, cloud deployment, and AI solutions.",
-    images: ["/assets/images/banner/banner-user-image-04.png"],
+    images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
   },
 };
 

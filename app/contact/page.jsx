@@ -24,7 +24,7 @@ export const metadata = {
       "Get in touch with me for freelance projects, full stack development work, or collaboration. Available for remote and contract work.",
     images: [
       {
-        url: "/assets/images/banner/banner-user-image-04.png",
+        url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
         alt: "Md Sabbir Hossain - Full Stack Developer",
@@ -36,7 +36,7 @@ export const metadata = {
     title: "Contact Md Sabbir Hossain | Full Stack Developer",
     description:
       "Connect with me for freelance projects, full stack development, or business inquiries.",
-    images: ["/assets/images/banner/banner-user-image-04.png"],
+    images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
   },
 };
 

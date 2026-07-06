@@ -38,7 +38,8 @@
       "Bash(cp public/assets/images/uploads/* uploads/)",
       "Bash(node -e \"console.log\\(require\\(''next/package.json''\\).version\\)\")",
       "Bash(pkill *)",
-      "Bash(grep -E '\\\\.md$|og-utils')"
+      "Bash(grep -E '\\\\.md$|og-utils')",
+      "Bash(npm run *)"
     ]
   }
 }
