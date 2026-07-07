@@ -1,17 +1,40 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import BlogSidebar from "./BlogSidebar";
 
 import Link from "next/link";
+
+const BLOGS_PER_PAGE = 3;
+
 export default function Blogs({ allBlogs = [], isLight = false }) {
-  console.log(allBlogs);
-  
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.max(1, Math.ceil(allBlogs.length / BLOGS_PER_PAGE));
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [allBlogs]);
+
+  const paginatedBlogs = allBlogs.slice(
+    (currentPage - 1) * BLOGS_PER_PAGE,
+    currentPage * BLOGS_PER_PAGE
+  );
+
+  const goToPage = (page) => {
+    if (page < 1 || page > totalPages || page === currentPage) return;
+    setCurrentPage(page);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="blog-classic-area-wrapper tmp-section-gap">
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
-            {allBlogs.slice(0, 3).map((blog, i) => (
+            {paginatedBlogs.map((blog, i) => (
               <div
                 key={i}
                 className={`blog-classic-card tmp-scroll-trigger tmponhover tmp-fade-in ${
@@ -97,23 +120,51 @@ export default function Blogs({ allBlogs = [], isLight = false }) {
               </div>
             ))}
             {allBlogs.length ? (
-              <div className="tmp-pagination-button">
-                <a href="#" className="pagination-btn">
-                  <i className="fa-sharp fa-regular fa-arrow-left" />
-                </a>
-                <a href="#" className="pagination-btn active">
-                  1
-                </a>
-                <a href="#" className="pagination-btn">
-                  2
-                </a>
-                <a href="#" className="pagination-btn">
-                  3
-                </a>
-                <a href="#" className="pagination-btn">
-                  <i className="fa-sharp fa-regular fa-arrow-right" />
-                </a>
-              </div>
+              totalPages > 1 && (
+                <div className="tmp-pagination-button">
+                  <a
+                    href="#"
+                    className={`pagination-btn ${
+                      currentPage === 1 ? "disabled" : ""
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      goToPage(currentPage - 1);
+                    }}
+                  >
+                    <i className="fa-sharp fa-regular fa-arrow-left" />
+                  </a>
+                  {Array.from({ length: totalPages }, (_, idx) => idx + 1).map(
+                    (page) => (
+                      <a
+                        key={page}
+                        href="#"
+                        className={`pagination-btn ${
+                          currentPage === page ? "active" : ""
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          goToPage(page);
+                        }}
+                      >
+                        {page}
+                      </a>
+                    )
+                  )}
+                  <a
+                    href="#"
+                    className={`pagination-btn ${
+                      currentPage === totalPages ? "disabled" : ""
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      goToPage(currentPage + 1);
+                    }}
+                  >
+                    <i className="fa-sharp fa-regular fa-arrow-right" />
+                  </a>
+                </div>
+              )
             ) : (
               <h3 className="text-center">No Blogs Found</h3>
             )}
