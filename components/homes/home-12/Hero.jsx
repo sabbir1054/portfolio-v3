@@ -1,6 +1,6 @@
+import ImageWithFallback from "@/components/common/ImageWithFallback";
 import ParticleComponent from "@/components/common/ParticleComponent";
 import TyperComponent from "@/components/common/TyperComponent";
-import ImageWithFallback from "@/components/common/ImageWithFallback";
 export default function Hero({ isLight = false }) {
   return (
     <div className="tmp-banner-one-area banner-twelve-area style-3" id="home">
@@ -49,7 +49,7 @@ export default function Hero({ isLight = false }) {
                           "Software Engineer.",
                           "Full Stack Developer.",
                           "Cyber Security Researcher.",
-                          "DevOps.",
+                          "DevSecOps Engineer.",
                           "Freelancer.",
                         ]}
                       />
