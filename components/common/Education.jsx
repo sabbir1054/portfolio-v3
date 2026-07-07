@@ -30,7 +30,7 @@ export default function Education() {
             </div>
           ))}
         </div>
-        <div className="experiences-wrapper v2">
+        <div className="experiences-wrapper v2" id="experience">
           <div className="row">
             <div className="col-lg-6">
               <div className="experiences-wrap-right-content">

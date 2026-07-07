@@ -96,7 +96,7 @@ export default function Education() {
           </div>
         )}
 
-        <div className="experiences-wrapper">
+        <div className="experiences-wrapper" id="experience">
           <div className="row">
             <div className="col-lg-6">
               <div className="experiences-wrap-left-content">
