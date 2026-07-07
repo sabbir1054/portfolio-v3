@@ -40,9 +40,9 @@ export const services2 = [
   {
     id: 1,
     num: "01.",
-    title: "Frontend Development",
+    title: "Offensive Security & Penetration Testing",
     description:
-      "Building responsive, high-performance web apps with React, Next.js, and Vue.js. Skilled in Tailwind CSS, Material UI, Shadcn, and modern UI frameworks for pixel-perfect interfaces.",
+      "Breaking things before attackers do. Performing web app penetration testing, vulnerability assessments, and security audits with Burp Suite, Nmap, and OWASP methodologies, then delivering clear, actionable remediation reports.",
     animationOrder: "1",
     isLink: true,
     column: 1,
@@ -50,9 +50,9 @@ export const services2 = [
   {
     id: 2,
     num: "02.",
-    title: "Backend Development",
+    title: "Full Stack Software Engineering",
     description:
-      "Developing scalable server-side solutions with Node.js, Express, Prisma, and Mongoose. Expertise in RESTful APIs, JWT authentication, RBAC, and secure backend architectures.",
+      "Engineering complete, production-grade applications end to end — responsive React and Next.js frontends backed by scalable Node.js, Express, and Prisma APIs, with JWT auth, RBAC, and secure architecture built in from day one.",
     animationOrder: "2",
     isLink: true,
     column: 1,

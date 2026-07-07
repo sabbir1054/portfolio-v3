@@ -149,7 +149,18 @@ export default function Education() {
                     management systems, and e-commerce applications.
                   </p>
                 </div>
-
+                <div className="experience-content tmp-scroll-trigger tmp-fade-in animation-order-2">
+                  <p className="ex-subtitle">experience</p>
+                  <h2 className="ex-name">
+                    Cyber Security Centre, DIU (2025 - Present)
+                  </h2>
+                  <h3 className="ex-title">Cyber Security Researcher</h3>
+                  <p className="ex-para">
+                    Conducting security research at the Cyber Security Centre in
+                    Daffodil International University, focusing on vulnerability
+                    assessment, penetration testing, and secure system analysis.
+                  </p>
+                </div>
                 <div className="experience-content tmp-scroll-trigger tmp-fade-in animation-order-3">
                   <p className="ex-subtitle">experience</p>
                   <h2 className="ex-name">
@@ -161,19 +172,6 @@ export default function Education() {
                     Node.js, and PostgreSQL. Implemented secure backend systems
                     with JWT authentication, RBAC, and cloud deployments on AWS
                     and GCP.
-                  </p>
-                </div>
-
-                <div className="experience-content tmp-scroll-trigger tmp-fade-in animation-order-2">
-                  <p className="ex-subtitle">experience</p>
-                  <h2 className="ex-name">
-                    Cyber Security Centre, DIU (2025 - Present)
-                  </h2>
-                  <h3 className="ex-title">Cyber Security Researcher</h3>
-                  <p className="ex-para">
-                    Conducting security research at the Cyber Security Centre in
-                    Daffodil International University, focusing on vulnerability
-                    assessment, penetration testing, and secure system analysis.
                   </p>
                 </div>
               </div>
