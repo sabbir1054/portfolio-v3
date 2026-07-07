@@ -45,11 +45,12 @@ export default function Hero({ isLight = false }) {
                     <span className="cd-headline clip is-full-width">
                       <TyperComponent
                         strings={[
-                          "Full Stack Web Developer.",
-                          "DevOps Enthusiast.",
+                          "Penetration Tester.",
+                          "Software Engineer.",
+                          "Full Stack Developer.",
                           "Cyber Security Researcher.",
+                          "DevOps.",
                           "Freelancer.",
-                          "Technical Content Creator.",
                         ]}
                       />
                     </span>

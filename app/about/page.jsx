@@ -17,30 +17,30 @@ const SITE_URL = "https://mdsabbir.dev";
 export const metadata = {
   title: "About Me",
   description:
-    "Learn about Md Sabbir Hossain — Full Stack Developer with expertise in React, Next.js, Node.js, and Cyber Security. B.Sc. in Software Engineering from Daffodil International University.",
+    "Learn about Md Sabbir Hossain — Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer, with expertise in React, Next.js, Node.js, and Cyber Security. B.Sc. in Software Engineering from Daffodil International University.",
   alternates: { canonical: "/about" },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: `${SITE_URL}/about`,
     siteName: "mdsabbir.dev",
-    title: "About Md Sabbir Hossain | Full Stack Developer",
+    title: "About Md Sabbir Hossain | Penetration Tester & Full Stack Developer",
     description:
-      "Discover my journey as a Full Stack Developer specializing in React, Next.js, Node.js, cloud technologies, and cybersecurity research.",
+      "Discover my journey as a Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer, specializing in React, Next.js, Node.js, cloud technologies, and cybersecurity research.",
     images: [
       {
         url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
-        alt: "Md Sabbir Hossain - Full Stack Developer",
+        alt: "Md Sabbir Hossain - Penetration Tester & Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Md Sabbir Hossain | Full Stack Developer",
+    title: "About Md Sabbir Hossain | Penetration Tester & Full Stack Developer",
     description:
-      "Learn about my expertise in full stack development, cloud deployment, and cybersecurity research.",
+      "Learn about my expertise in penetration testing, software engineering, full stack development, cyber security research, DevOps, and freelance work.",
     images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
   },
 };

@@ -11,12 +11,14 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Md Sabbir Hossain | Full Stack Developer & Cyber Security Researcher",
+      "Md Sabbir Hossain | Penetration Tester & Full Stack Developer",
     template: "%s | mdsabbir.dev",
   },
   description:
-    "Full Stack Developer specializing in React, Next.js, Node.js, PostgreSQL, and cloud deployment. Building scalable web applications with modern technologies. Based in Dhaka, Bangladesh.",
+    "Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer, specializing in React, Next.js, Node.js, PostgreSQL, and cloud deployment. Building and securing scalable web applications with modern technologies. Based in Dhaka, Bangladesh.",
   keywords: [
+    "Penetration Tester",
+    "Software Engineer",
     "Full Stack Developer",
     "Md Sabbir Hossain",
     "React Developer",
@@ -25,6 +27,7 @@ export const metadata = {
     "Web Developer Bangladesh",
     "Freelance Developer",
     "Cyber Security Researcher",
+    "DevOps",
     "MERN Stack",
     "PostgreSQL",
     "Prisma",
@@ -39,23 +42,23 @@ export const metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "mdsabbir.dev",
-    title: "Md Sabbir Hossain | Full Stack Developer",
+    title: "Md Sabbir Hossain | Penetration Tester & Full Stack Developer",
     description:
-      "Full Stack Developer specializing in React, Next.js, Node.js, and cloud technologies. Building scalable, production-grade web applications.",
+      "Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer, specializing in React, Next.js, Node.js, and cloud technologies. Building and securing scalable, production-grade web applications.",
     images: [
       {
         url: "/assets/images/banner/banner-user-image-04.png",
         width: 525,
         height: 525,
-        alt: "Md Sabbir Hossain - Full Stack Developer",
+        alt: "Md Sabbir Hossain - Penetration Tester & Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Md Sabbir Hossain | Full Stack Developer",
+    title: "Md Sabbir Hossain | Penetration Tester & Full Stack Developer",
     description:
-      "Full Stack Developer specializing in React, Next.js, Node.js, and cloud technologies.",
+      "Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer, specializing in React, Next.js, Node.js, and cloud technologies.",
     images: ["/assets/images/banner/banner-user-image-04.png"],
   },
   robots: {
@@ -81,9 +84,10 @@ export default function RootLayout({ children }) {
     name: "Md Sabbir Hossain",
     url: SITE_URL,
     image: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
-    jobTitle: "Full Stack Developer",
+    jobTitle:
+      "Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer",
     description:
-      "Full Stack Developer & Cyber Security Researcher based in Dhaka, Bangladesh.",
+      "Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer, based in Dhaka, Bangladesh.",
     email: "mdsabbir1054@gmail.com",
     telephone: "+8801733208221",
     address: {

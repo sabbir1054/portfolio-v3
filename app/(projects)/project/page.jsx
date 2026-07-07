@@ -15,7 +15,7 @@ const SITE_URL = "https://mdsabbir.dev";
 export const metadata = {
   title: "Projects",
   description:
-    "Browse projects by Md Sabbir Hossain — full stack web applications, management systems, e-commerce platforms, and AI-powered solutions.",
+    "Browse projects by Md Sabbir Hossain — Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer — full stack web applications, management systems, e-commerce platforms, and AI-powered solutions.",
   alternates: { canonical: "/project" },
   openGraph: {
     type: "website",
@@ -24,13 +24,13 @@ export const metadata = {
     siteName: "mdsabbir.dev",
     title: "Projects | Md Sabbir Hossain's Portfolio",
     description:
-      "Explore my full stack web applications, management systems, e-commerce platforms, and AI-powered solutions built with React, Next.js, and Node.js.",
+      "Explore my full stack web applications, security-focused projects, management systems, e-commerce platforms, and AI-powered solutions built with React, Next.js, and Node.js.",
     images: [
       {
         url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
-        alt: "Md Sabbir Hossain - Full Stack Developer",
+        alt: "Md Sabbir Hossain - Penetration Tester & Full Stack Developer",
       },
     ],
   },
@@ -38,7 +38,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Projects | Md Sabbir Hossain's Portfolio",
     description:
-      "Check out my portfolio of web applications and development projects.",
+      "Check out my portfolio of web applications, penetration testing, and development projects.",
     images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
   },
 };

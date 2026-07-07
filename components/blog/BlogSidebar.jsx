@@ -110,7 +110,10 @@ export default function BlogSidebar({ isLight = false }) {
               </div>
               <div className="about-me-right-content">
                 <h3 className="title">Md Sabbir Hossain</h3>
-                <p className="para">Full Stack Developer</p>
+                <p className="para">
+                  Penetration Tester | Software Engineer | Full Stack
+                  Developer | Cyber Security Researcher | DevOps | Freelancer
+                </p>
                 <div className="social-link">
                   <a
                     href="https://github.com/sabbir1054"
@@ -144,9 +147,10 @@ export default function BlogSidebar({ isLight = false }) {
               </div>
             </div>
             <p className="about-me-para">
-              Full Stack Developer specializing in React, Next.js, Node.js, and
-              cloud technologies. Building scalable web applications with modern
-              tech stacks.
+              Penetration Tester, Software Engineer, and Full Stack Developer
+              specializing in React, Next.js, Node.js, and cloud technologies.
+              Also active as a Cyber Security Researcher, DevOps practitioner,
+              and Freelancer, building and securing scalable web applications.
             </p>
           </div>
         </div>

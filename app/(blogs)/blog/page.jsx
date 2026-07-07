@@ -15,7 +15,7 @@ const SITE_URL = "https://mdsabbir.dev";
 export const metadata = {
   title: "Blog",
   description:
-    "Technical articles and insights by Md Sabbir Hossain on full stack development, React, Next.js, Node.js, DevOps, and cyber security.",
+    "Technical articles and insights by Md Sabbir Hossain — Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer — on full stack development, React, Next.js, Node.js, DevOps, and cyber security.",
   alternates: { canonical: "/blog" },
   openGraph: {
     type: "website",
@@ -24,13 +24,13 @@ export const metadata = {
     siteName: "mdsabbir.dev",
     title: "Blog | Md Sabbir Hossain's Technical Insights",
     description:
-      "Explore technical articles on full stack development, React, Next.js, Node.js, DevOps, database design, and cybersecurity research.",
+      "Explore technical articles on full stack development, penetration testing, React, Next.js, Node.js, DevOps, database design, and cybersecurity research.",
     images: [
       {
         url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
-        alt: "Md Sabbir Hossain - Full Stack Developer",
+        alt: "Md Sabbir Hossain - Penetration Tester & Full Stack Developer",
       },
     ],
   },
@@ -38,7 +38,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Blog | Md Sabbir Hossain's Technical Insights",
     description:
-      "Read my technical articles on full stack development, React, Next.js, Node.js, and more.",
+      "Read my technical articles on full stack development, penetration testing, React, Next.js, Node.js, DevOps, and more.",
     images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
   },
 };

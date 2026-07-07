@@ -17,32 +17,32 @@ export const dynamic = "force-dynamic";
 const SITE_URL = "https://mdsabbir.dev";
 
 export const metadata = {
-  title: "Md Sabbir Hossain | Full Stack Developer & Cyber Security Researcher",
+  title: "Md Sabbir Hossain | Penetration Tester & Full Stack Developer",
   description:
-    "Portfolio of Md Sabbir Hossain — Full Stack Developer specializing in React, Next.js, Node.js, PostgreSQL, AWS, and AI integration. Based in Dhaka, Bangladesh.",
+    "Portfolio of Md Sabbir Hossain — Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer, specializing in React, Next.js, Node.js, PostgreSQL, AWS, and AI integration. Based in Dhaka, Bangladesh.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
     siteName: "mdsabbir.dev",
-    title: "Md Sabbir Hossain | Full Stack Developer",
+    title: "Md Sabbir Hossain | Penetration Tester & Full Stack Developer",
     description:
-      "Full Stack Developer specializing in React, Next.js, Node.js, and cloud technologies. Building scalable, production-grade web applications.",
+      "Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer, specializing in React, Next.js, Node.js, and cloud technologies. Building and securing scalable, production-grade web applications.",
     images: [
       {
         url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
-        alt: "Md Sabbir Hossain - Full Stack Developer",
+        alt: "Md Sabbir Hossain - Penetration Tester & Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Md Sabbir Hossain | Full Stack Developer",
+    title: "Md Sabbir Hossain | Penetration Tester & Full Stack Developer",
     description:
-      "Full Stack Developer specializing in React, Next.js, Node.js, and cloud technologies.",
+      "Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer, specializing in React, Next.js, Node.js, and cloud technologies.",
     images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
     creator: "@sabbir1054",
   },

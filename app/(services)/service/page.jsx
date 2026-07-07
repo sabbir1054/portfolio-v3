@@ -13,7 +13,7 @@ const SITE_URL = "https://mdsabbir.dev";
 export const metadata = {
   title: "Services",
   description:
-    "Full stack development services by Md Sabbir Hossain — frontend, backend, database design, cloud deployment, and AI-powered solutions.",
+    "Full stack development and penetration testing services by Md Sabbir Hossain — Penetration Tester | Software Engineer | Full Stack Developer | Cyber Security Researcher | DevOps | Freelancer — frontend, backend, database design, cloud deployment, and AI-powered solutions.",
   alternates: { canonical: "/service" },
   openGraph: {
     type: "website",
@@ -22,13 +22,13 @@ export const metadata = {
     siteName: "mdsabbir.dev",
     title: "Services | Md Sabbir Hossain's Development Services",
     description:
-      "Comprehensive full stack development services: frontend, backend, database design, cloud deployment, AI integration, and full stack consulting.",
+      "Comprehensive full stack development, penetration testing, and cyber security services: frontend, backend, database design, cloud deployment, AI integration, and full stack consulting.",
     images: [
       {
         url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
-        alt: "Md Sabbir Hossain - Full Stack Developer",
+        alt: "Md Sabbir Hossain - Penetration Tester & Full Stack Developer",
       },
     ],
   },
@@ -36,7 +36,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Services | Md Sabbir Hossain's Development Services",
     description:
-      "Full stack development services including frontend, backend, database design, cloud deployment, and AI solutions.",
+      "Full stack development and penetration testing services including frontend, backend, database design, cloud deployment, and AI solutions.",
     images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
   },
 };

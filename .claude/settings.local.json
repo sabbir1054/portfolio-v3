@@ -39,7 +39,11 @@
       "Bash(node -e \"console.log\\(require\\(''next/package.json''\\).version\\)\")",
       "Bash(pkill *)",
       "Bash(grep -E '\\\\.md$|og-utils')",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(powershell -Command 'Get-Process -Name node -ErrorAction SilentlyContinue | Where-Object {$_.MainWindowTitle -eq '\\\\'''\\\\''} | Select-Object Id')",
+      "Bash(netstat -ano)",
+      "Bash(powershell -Command \"Stop-Process -Id 26772 -Force\")",
+      "Bash(powershell -Command \"Stop-Process -Id 24724 -Force\")"
     ]
   }
 }

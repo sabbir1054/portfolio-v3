@@ -19,21 +19,21 @@ export const metadata = {
     locale: "en_US",
     url: `${SITE_URL}/contact`,
     siteName: "mdsabbir.dev",
-    title: "Contact Md Sabbir Hossain | Full Stack Developer",
+    title: "Contact Md Sabbir Hossain | Penetration Tester & Full Stack Developer",
     description:
-      "Get in touch with me for freelance projects, full stack development work, or collaboration. Available for remote and contract work.",
+      "Get in touch with me for penetration testing, full stack development, DevOps, or cyber security research work, or collaboration. Available for remote and contract work.",
     images: [
       {
         url: `${SITE_URL}/assets/images/banner/banner-user-image-04.png`,
         width: 525,
         height: 525,
-        alt: "Md Sabbir Hossain - Full Stack Developer",
+        alt: "Md Sabbir Hossain - Penetration Tester & Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Md Sabbir Hossain | Full Stack Developer",
+    title: "Contact Md Sabbir Hossain | Penetration Tester & Full Stack Developer",
     description:
       "Connect with me for freelance projects, full stack development, or business inquiries.",
     images: [`${SITE_URL}/assets/images/banner/banner-user-image-04.png`],
