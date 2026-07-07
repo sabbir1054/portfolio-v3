@@ -114,6 +114,21 @@ export default function Education() {
                 <div className="experience-content tmp-scroll-trigger tmp-fade-in animation-order-1">
                   <p className="ex-subtitle">experience</p>
                   <h2 className="ex-name">
+                    Byte Capsule (June 2026 - Present)
+                  </h2>
+                  <h3 className="ex-title">Junior Penetration Tester Intern</h3>
+                  <p className="ex-para">
+                    Assisted in web application security assessments,
+                    vulnerability analysis, and penetration testing under senior
+                    security professionals. Performed reconnaissance, identified
+                    common security flaws, documented findings, and contributed
+                    to remediation recommendations using industry-standard
+                    security tools and methodologies.
+                  </p>
+                </div>
+                <div className="experience-content tmp-scroll-trigger tmp-fade-in animation-order-1">
+                  <p className="ex-subtitle">experience</p>
+                  <h2 className="ex-name">
                     Code Studio (March 2026 - Present)
                   </h2>
                   <h3 className="ex-title">Software Engineer</h3>
