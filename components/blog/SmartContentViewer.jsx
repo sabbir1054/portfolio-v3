@@ -62,7 +62,7 @@ export default function SmartContentViewer({ content, contentType = null }) {
   return (
     <div className={`smart-content-viewer ${viewerType}-content`}>
       {viewerType === "markdown" ? (
-        <div className="markdown-content" data-color-mode="light">
+        <div className="markdown-content">
           <MDPreview
             source={content}
             style={{
@@ -86,7 +86,7 @@ export default function SmartContentViewer({ content, contentType = null }) {
 
         .smart-content-viewer.markdown-content {
           line-height: 1.8;
-          color: #333;
+          color: var(--color-body);
         }
 
         .smart-content-viewer.markdown-content :global(h1),
@@ -95,96 +95,126 @@ export default function SmartContentViewer({ content, contentType = null }) {
         .smart-content-viewer.markdown-content :global(h4),
         .smart-content-viewer.markdown-content :global(h5),
         .smart-content-viewer.markdown-content :global(h6) {
-          margin: 1.5em 0 0.5em 0;
+          margin: 30px 0 15px 0;
           font-weight: 600;
+          color: var(--color-heading);
         }
 
         .smart-content-viewer.markdown-content :global(h1) {
-          font-size: 2em;
+          font-size: 2.5em;
         }
 
         .smart-content-viewer.markdown-content :global(h2) {
-          font-size: 1.5em;
+          font-size: 2em;
         }
 
         .smart-content-viewer.markdown-content :global(h3) {
+          font-size: 1.5em;
+        }
+
+        .smart-content-viewer.markdown-content :global(h4) {
           font-size: 1.25em;
         }
 
         .smart-content-viewer.markdown-content :global(p) {
-          margin: 1em 0;
+          margin: 20px 0;
+          color: var(--color-body);
+        }
+
+        .smart-content-viewer.markdown-content :global(strong),
+        .smart-content-viewer.markdown-content :global(b) {
+          color: var(--color-heading);
+          font-weight: 700;
         }
 
         .smart-content-viewer.markdown-content :global(code) {
-          background: #f4f4f4;
+          background: var(--background-color-4);
           padding: 2px 6px;
-          border-radius: 3px;
-          font-family: monospace;
-          font-size: 0.95em;
+          border-radius: 4px;
+          color: #00FF88;
+          font-family: 'Courier New', monospace;
+          font-size: 0.9em;
         }
 
         .smart-content-viewer.markdown-content :global(pre) {
-          background: #f4f4f4;
-          padding: 15px;
-          border-radius: 5px;
+          background: var(--background-color-4);
+          border: 1px solid var(--color-border);
+          padding: 20px;
+          border-radius: 8px;
           overflow-x: auto;
-          margin: 1em 0;
+          margin: 20px 0;
         }
 
         .smart-content-viewer.markdown-content :global(pre code) {
           background: none;
           padding: 0;
+          color: #00FF88;
         }
 
         .smart-content-viewer.markdown-content :global(blockquote) {
-          border-left: 4px solid #ddd;
-          padding: 0 0 0 15px;
-          margin: 1em 0;
-          color: #666;
+          border-left: 4px solid #7B2FFF;
+          padding: 15px 20px;
+          margin: 20px 0;
+          background: var(--background-color-3);
+          border-radius: 4px;
+          color: var(--color-body);
+          font-style: italic;
         }
 
         .smart-content-viewer.markdown-content :global(ul),
         .smart-content-viewer.markdown-content :global(ol) {
-          margin: 1em 0;
-          padding-left: 2em;
+          margin: 20px 0 20px 30px;
+          line-height: 1.8;
         }
 
         .smart-content-viewer.markdown-content :global(li) {
-          margin: 0.5em 0;
+          margin-bottom: 10px;
+          color: var(--color-body);
         }
 
         .smart-content-viewer.markdown-content :global(a) {
-          color: #1e90ff;
+          color: #7B2FFF;
           text-decoration: none;
+          transition: 0.3s;
         }
 
         .smart-content-viewer.markdown-content :global(a:hover) {
           text-decoration: underline;
+          color: #00FF88;
         }
 
         .smart-content-viewer.markdown-content :global(img) {
           max-width: 100%;
           height: auto;
-          border-radius: 5px;
-          margin: 1em 0;
+          margin: 20px 0;
+          border-radius: 8px;
+          display: block;
         }
 
         .smart-content-viewer.markdown-content :global(table) {
-          border-collapse: collapse;
           width: 100%;
-          margin: 1em 0;
+          border-collapse: collapse;
+          margin: 20px 0;
         }
 
         .smart-content-viewer.markdown-content :global(th),
         .smart-content-viewer.markdown-content :global(td) {
-          border: 1px solid #ddd;
-          padding: 8px 12px;
+          border: 1px solid var(--color-border);
+          padding: 12px;
           text-align: left;
+          color: var(--color-body);
         }
 
         .smart-content-viewer.markdown-content :global(th) {
-          background: #f9f9f9;
+          background: var(--background-color-4);
+          color: var(--color-heading);
           font-weight: 600;
+        }
+
+        .smart-content-viewer.markdown-content :global(hr) {
+          border: none;
+          border-top: 1px solid var(--color-border);
+          margin: 30px 0;
         }
 
         .smart-content-viewer.html-content {
@@ -194,7 +224,7 @@ export default function SmartContentViewer({ content, contentType = null }) {
         .no-content {
           padding: 40px 20px;
           text-align: center;
-          color: #999;
+          color: var(--color-gray);
           font-size: 16px;
         }
       `}</style>
