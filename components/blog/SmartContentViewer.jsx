@@ -2,51 +2,38 @@
 
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
-import "@uiw/react-markdown-preview/markdown.css";
 
-const MDPreview = dynamic(
-  () => import("@uiw/react-markdown-preview").then(mod => mod.default),
-  { ssr: false, loading: () => <div>Loading...</div> }
-);
+const MDPreview = dynamic(() => import("@uiw/react-markdown-preview"), {
+  ssr: false,
+});
 
-// Function to detect if content is markdown or HTML
 const detectContentType = (content) => {
   if (!content) return "html";
 
-  // Check for markdown indicators
   const markdownIndicators = [
-    /^#+\s/m, // Headers
-    /\*{1,3}\w+\*{1,3}/m, // Bold/italic with asterisks
-    /_{1,3}\w+_{1,3}/m, // Bold/italic with underscores
-    /\[.+\]\(.+\)/m, // Links
-    /!\[.+\]\(.+\)/m, // Images
-    /^-\s/m, // Unordered lists
-    /^\d+\.\s/m, // Ordered lists
-    /^```/m, // Code blocks
-    /^>/m, // Blockquotes
-    /^\|.+\|/m, // Tables
+    /^#+\s/m,
+    /\*{1,3}\w+\*{1,3}/m,
+    /_{1,3}\w+_{1,3}/m,
+    /\[.+\]\(.+\)/m,
+    /!\[.+\]\(.+\)/m,
+    /^-\s/m,
+    /^\d+\.\s/m,
+    /^```/m,
+    /^>/m,
+    /^\|.+\|/m,
   ];
 
-  const htmlIndicators = [
-    /<\w+[^>]*>/m, // HTML tags
-    /&\w+;/m, // HTML entities
-  ];
+  const htmlIndicators = [/<\w+[^>]*>/m, /&\w+;/m];
 
-  // Count markdown-like patterns
   const markdownCount = markdownIndicators.filter((regex) =>
     regex.test(content)
   ).length;
 
-  // Check for HTML tags
   const hasHtml = htmlIndicators.some((regex) => regex.test(content));
 
-  // If content has HTML tags, treat as HTML
   if (hasHtml) return "html";
-
-  // If markdown patterns found, treat as markdown
   if (markdownCount >= 2) return "markdown";
 
-  // Default to HTML for backward compatibility
   return "html";
 };
 
@@ -61,18 +48,18 @@ export default function SmartContentViewer({ content, contentType = null }) {
   }
 
   return (
-    <div className={`smart-content-viewer ${viewerType}-content`}>
+    <div className={`smart-content-viewer ${viewerType}-content blog-details-discription`}>
       {viewerType === "markdown" ? (
-        <div className="markdown-content">
-          <MDPreview
-            source={content}
-            style={{
-              backgroundColor: "transparent",
-              color: "inherit",
-              padding: "0",
-            }}
-          />
-        </div>
+        <MDPreview
+          source={content}
+          disableCopy
+          className="wmde-markdown-var"
+          style={{
+            backgroundColor: "transparent",
+            color: "inherit",
+            padding: "0",
+          }}
+        />
       ) : (
         <div
           className="html-content disc"
@@ -81,147 +68,138 @@ export default function SmartContentViewer({ content, contentType = null }) {
       )}
 
       <style jsx global>{`
-        .smart-content-viewer {
+        .smart-content-viewer.markdown-content .wmde-markdown-var {
+          color: var(--color-body);
+          line-height: 1.8;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var h1,
+        .smart-content-viewer.markdown-content .wmde-markdown-var h2,
+        .smart-content-viewer.markdown-content .wmde-markdown-var h3,
+        .smart-content-viewer.markdown-content .wmde-markdown-var h4,
+        .smart-content-viewer.markdown-content .wmde-markdown-var h5,
+        .smart-content-viewer.markdown-content .wmde-markdown-var h6 {
+          margin: 30px 0 15px 0;
+          font-weight: 600;
+          color: var(--color-heading);
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var h1 {
+          font-size: 2.5em;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var h2 {
+          font-size: 2em;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var h3 {
+          font-size: 1.5em;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var h4 {
+          font-size: 1.25em;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var p {
+          margin: 20px 0;
+          color: var(--color-body);
+          line-height: 1.8;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var strong,
+        .smart-content-viewer.markdown-content .wmde-markdown-var b {
+          color: var(--color-heading);
+          font-weight: 700;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var code {
+          background: var(--background-color-4);
+          padding: 2px 6px;
+          border-radius: 4px;
+          color: #00FF88;
+          font-family: 'Courier New', monospace;
+          font-size: 0.9em;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var pre {
+          background: var(--background-color-4);
+          border: 1px solid var(--color-border);
+          padding: 20px;
+          border-radius: 8px;
+          overflow-x: auto;
+          margin: 20px 0;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var pre code {
+          background: none;
+          padding: 0;
+          color: #00FF88;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var blockquote {
+          border-left: 4px solid #7B2FFF;
+          padding: 15px 20px;
+          margin: 20px 0;
+          background: var(--background-color-3);
+          border-radius: 4px;
+          color: var(--color-body);
+          font-style: italic;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var ul,
+        .smart-content-viewer.markdown-content .wmde-markdown-var ol {
+          margin: 20px 0 20px 30px;
+          line-height: 1.8;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var li {
+          margin-bottom: 10px;
+          color: var(--color-body);
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var a {
+          color: #7B2FFF;
+          text-decoration: none;
+          transition: 0.3s;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var a:hover {
+          text-decoration: underline;
+          color: #00FF88;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var img {
+          max-width: 100%;
+          height: auto;
+          margin: 20px 0;
+          border-radius: 8px;
+          display: block;
+        }
+
+        .smart-content-viewer.markdown-content .wmde-markdown-var table {
           width: 100%;
+          border-collapse: collapse;
+          margin: 20px 0;
         }
 
-        .smart-content-viewer.markdown-content .wmde-markdown {
-          background: transparent !important;
-          color: var(--color-body) !important;
-          line-height: 1.8;
+        .smart-content-viewer.markdown-content .wmde-markdown-var th,
+        .smart-content-viewer.markdown-content .wmde-markdown-var td {
+          border: 1px solid var(--color-border);
+          padding: 12px;
+          text-align: left;
+          color: var(--color-body);
         }
 
-        .smart-content-viewer.markdown-content .wmde-markdown h1,
-        .smart-content-viewer.markdown-content .wmde-markdown h2,
-        .smart-content-viewer.markdown-content .wmde-markdown h3,
-        .smart-content-viewer.markdown-content .wmde-markdown h4,
-        .smart-content-viewer.markdown-content .wmde-markdown h5,
-        .smart-content-viewer.markdown-content .wmde-markdown h6 {
-          margin: 30px 0 15px 0 !important;
-          font-weight: 600 !important;
-          color: var(--color-heading) !important;
+        .smart-content-viewer.markdown-content .wmde-markdown-var th {
+          background: var(--background-color-4);
+          color: var(--color-heading);
+          font-weight: 600;
         }
 
-        .smart-content-viewer.markdown-content .wmde-markdown h1 {
-          font-size: 2.5em !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown h2 {
-          font-size: 2em !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown h3 {
-          font-size: 1.5em !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown h4 {
-          font-size: 1.25em !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown p {
-          margin: 20px 0 !important;
-          color: var(--color-body) !important;
-          line-height: 1.8 !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown strong,
-        .smart-content-viewer.markdown-content .wmde-markdown b {
-          color: var(--color-heading) !important;
-          font-weight: 700 !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown code {
-          background: var(--background-color-4) !important;
-          padding: 2px 6px !important;
-          border-radius: 4px !important;
-          color: #00FF88 !important;
-          font-family: 'Courier New', monospace !important;
-          font-size: 0.9em !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown pre {
-          background: var(--background-color-4) !important;
-          border: 1px solid var(--color-border) !important;
-          padding: 20px !important;
-          border-radius: 8px !important;
-          overflow-x: auto !important;
-          margin: 20px 0 !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown pre code {
-          background: none !important;
-          padding: 0 !important;
-          color: #00FF88 !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown blockquote {
-          border-left: 4px solid #7B2FFF !important;
-          padding: 15px 20px !important;
-          margin: 20px 0 !important;
-          background: var(--background-color-3) !important;
-          border-radius: 4px !important;
-          color: var(--color-body) !important;
-          font-style: italic !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown ul,
-        .smart-content-viewer.markdown-content .wmde-markdown ol {
-          margin: 20px 0 20px 30px !important;
-          line-height: 1.8 !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown li {
-          margin-bottom: 10px !important;
-          color: var(--color-body) !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown a {
-          color: #7B2FFF !important;
-          text-decoration: none !important;
-          transition: 0.3s !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown a:hover {
-          text-decoration: underline !important;
-          color: #00FF88 !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown img {
-          max-width: 100% !important;
-          height: auto !important;
-          margin: 20px 0 !important;
-          border-radius: 8px !important;
-          display: block !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown table {
-          width: 100% !important;
-          border-collapse: collapse !important;
-          margin: 20px 0 !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown th,
-        .smart-content-viewer.markdown-content .wmde-markdown td {
-          border: 1px solid var(--color-border) !important;
-          padding: 12px !important;
-          text-align: left !important;
-          color: var(--color-body) !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown th {
-          background: var(--background-color-4) !important;
-          color: var(--color-heading) !important;
-          font-weight: 600 !important;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown hr {
-          border: none !important;
-          border-top: 1px solid var(--color-border) !important;
-          margin: 30px 0 !important;
-        }
-
-        .smart-content-viewer.html-content {
-          line-height: 1.8;
+        .smart-content-viewer.markdown-content .wmde-markdown-var hr {
+          border: none;
+          border-top: 1px solid var(--color-border);
+          margin: 30px 0;
         }
 
         .no-content {
