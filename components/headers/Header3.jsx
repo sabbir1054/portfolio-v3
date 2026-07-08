@@ -1,6 +1,6 @@
 import ImageWithFallback from "@/components/common/ImageWithFallback";
 import Link from "next/link";
-import OnepageNav2 from "./OnepageNav2";
+import OnepageNav3 from "./OnepageNav3";
 export default function Header3() {
   return (
     <div className="d-none d-xl-block header-style-2 header-left">
@@ -21,7 +21,7 @@ export default function Header3() {
             className="mainmenu-nav navbar-example2 onepagenav"
           >
             <ul className="primary-menu nav nav-pills">
-              <OnepageNav2 />
+              <OnepageNav3 />
             </ul>
           </nav>
           <div className="footer">
