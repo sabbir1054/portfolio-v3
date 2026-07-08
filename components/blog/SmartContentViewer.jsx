@@ -1,11 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import Markdown from "react-markdown";
 import { useMemo } from "react";
-
-const MDPreview = dynamic(() => import("@uiw/react-markdown-preview"), {
-  ssr: false,
-});
 
 const detectContentType = (content) => {
   if (!content) return "html";
@@ -37,6 +33,246 @@ const detectContentType = (content) => {
   return "html";
 };
 
+const MarkdownComponents = {
+  h1: ({ node, ...props }) => (
+    <h1
+      style={{
+        fontSize: "2.5em",
+        margin: "30px 0 15px 0",
+        fontWeight: 600,
+        color: "var(--color-heading)",
+      }}
+      {...props}
+    />
+  ),
+  h2: ({ node, ...props }) => (
+    <h2
+      style={{
+        fontSize: "2em",
+        margin: "30px 0 15px 0",
+        fontWeight: 600,
+        color: "var(--color-heading)",
+      }}
+      {...props}
+    />
+  ),
+  h3: ({ node, ...props }) => (
+    <h3
+      style={{
+        fontSize: "1.5em",
+        margin: "30px 0 15px 0",
+        fontWeight: 600,
+        color: "var(--color-heading)",
+      }}
+      {...props}
+    />
+  ),
+  h4: ({ node, ...props }) => (
+    <h4
+      style={{
+        fontSize: "1.25em",
+        margin: "30px 0 15px 0",
+        fontWeight: 600,
+        color: "var(--color-heading)",
+      }}
+      {...props}
+    />
+  ),
+  h5: ({ node, ...props }) => (
+    <h5
+      style={{
+        fontSize: "1.1em",
+        margin: "30px 0 15px 0",
+        fontWeight: 600,
+        color: "var(--color-heading)",
+      }}
+      {...props}
+    />
+  ),
+  h6: ({ node, ...props }) => (
+    <h6
+      style={{
+        fontSize: "1em",
+        margin: "30px 0 15px 0",
+        fontWeight: 600,
+        color: "var(--color-heading)",
+      }}
+      {...props}
+    />
+  ),
+  p: ({ node, ...props }) => (
+    <p
+      style={{
+        margin: "20px 0",
+        color: "var(--color-body)",
+        lineHeight: 1.8,
+      }}
+      {...props}
+    />
+  ),
+  strong: ({ node, ...props }) => (
+    <strong
+      style={{
+        color: "var(--color-heading)",
+        fontWeight: 700,
+      }}
+      {...props}
+    />
+  ),
+  em: ({ node, ...props }) => (
+    <em
+      style={{
+        color: "var(--color-heading)",
+      }}
+      {...props}
+    />
+  ),
+  code: ({ node, inline, ...props }) => (
+    <code
+      style={{
+        background: inline ? "var(--background-color-4)" : "transparent",
+        padding: inline ? "2px 6px" : "0",
+        borderRadius: inline ? "4px" : "0",
+        color: "#00FF88",
+        fontFamily: "'Courier New', monospace",
+        fontSize: "0.9em",
+      }}
+      {...props}
+    />
+  ),
+  pre: ({ node, ...props }) => (
+    <pre
+      style={{
+        background: "var(--background-color-4)",
+        border: "1px solid var(--color-border)",
+        padding: "20px",
+        borderRadius: "8px",
+        overflowX: "auto",
+        margin: "20px 0",
+      }}
+      {...props}
+    />
+  ),
+  blockquote: ({ node, ...props }) => (
+    <blockquote
+      style={{
+        borderLeft: "4px solid #7B2FFF",
+        padding: "15px 20px",
+        margin: "20px 0",
+        background: "var(--background-color-3)",
+        borderRadius: "4px",
+        color: "var(--color-body)",
+        fontStyle: "italic",
+      }}
+      {...props}
+    />
+  ),
+  ul: ({ node, ...props }) => (
+    <ul
+      style={{
+        margin: "20px 0 20px 30px",
+        lineHeight: 1.8,
+      }}
+      {...props}
+    />
+  ),
+  ol: ({ node, ...props }) => (
+    <ol
+      style={{
+        margin: "20px 0 20px 30px",
+        lineHeight: 1.8,
+      }}
+      {...props}
+    />
+  ),
+  li: ({ node, ...props }) => (
+    <li
+      style={{
+        marginBottom: "10px",
+        color: "var(--color-body)",
+      }}
+      {...props}
+    />
+  ),
+  a: ({ node, ...props }) => (
+    <a
+      style={{
+        color: "#7B2FFF",
+        textDecoration: "none",
+        transition: "0.3s",
+        cursor: "pointer",
+      }}
+      onMouseEnter={(e) => {
+        e.target.style.textDecoration = "underline";
+        e.target.style.color = "#00FF88";
+      }}
+      onMouseLeave={(e) => {
+        e.target.style.textDecoration = "none";
+        e.target.style.color = "#7B2FFF";
+      }}
+      {...props}
+    />
+  ),
+  img: ({ node, ...props }) => (
+    <img
+      style={{
+        maxWidth: "100%",
+        height: "auto",
+        margin: "20px 0",
+        borderRadius: "8px",
+        display: "block",
+      }}
+      {...props}
+    />
+  ),
+  table: ({ node, ...props }) => (
+    <table
+      style={{
+        width: "100%",
+        borderCollapse: "collapse",
+        margin: "20px 0",
+      }}
+      {...props}
+    />
+  ),
+  thead: ({ node, ...props }) => <thead {...props} />,
+  tbody: ({ node, ...props }) => <tbody {...props} />,
+  th: ({ node, ...props }) => (
+    <th
+      style={{
+        border: "1px solid var(--color-border)",
+        padding: "12px",
+        textAlign: "left",
+        background: "var(--background-color-4)",
+        color: "var(--color-heading)",
+        fontWeight: 600,
+      }}
+      {...props}
+    />
+  ),
+  td: ({ node, ...props }) => (
+    <td
+      style={{
+        border: "1px solid var(--color-border)",
+        padding: "12px",
+        textAlign: "left",
+        color: "var(--color-body)",
+      }}
+      {...props}
+    />
+  ),
+  hr: ({ node, ...props }) => (
+    <hr
+      style={{
+        border: "none",
+        borderTop: "1px solid var(--color-border)",
+        margin: "30px 0",
+      }}
+      {...props}
+    />
+  ),
+};
+
 export default function SmartContentViewer({ content, contentType = null }) {
   const viewerType = useMemo(() => {
     if (contentType) return contentType;
@@ -44,171 +280,33 @@ export default function SmartContentViewer({ content, contentType = null }) {
   }, [content, contentType]);
 
   if (!content) {
-    return <div className="no-content">No content available</div>;
+    return (
+      <div
+        className="no-content"
+        style={{
+          padding: "40px 20px",
+          textAlign: "center",
+          color: "var(--color-gray)",
+          fontSize: "16px",
+        }}
+      >
+        No content available
+      </div>
+    );
   }
 
   return (
-    <div className={`smart-content-viewer ${viewerType}-content blog-details-discription`}>
+    <div
+      className={`smart-content-viewer ${viewerType}-content blog-details-discription`}
+    >
       {viewerType === "markdown" ? (
-        <MDPreview
-          source={content}
-          disableCopy
-          className="wmde-markdown-var"
-          style={{
-            backgroundColor: "transparent",
-            color: "inherit",
-            padding: "0",
-          }}
-        />
+        <Markdown components={MarkdownComponents}>{content}</Markdown>
       ) : (
         <div
           className="html-content disc"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       )}
-
-      <style jsx global>{`
-        .smart-content-viewer.markdown-content .wmde-markdown-var {
-          color: var(--color-body);
-          line-height: 1.8;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var h1,
-        .smart-content-viewer.markdown-content .wmde-markdown-var h2,
-        .smart-content-viewer.markdown-content .wmde-markdown-var h3,
-        .smart-content-viewer.markdown-content .wmde-markdown-var h4,
-        .smart-content-viewer.markdown-content .wmde-markdown-var h5,
-        .smart-content-viewer.markdown-content .wmde-markdown-var h6 {
-          margin: 30px 0 15px 0;
-          font-weight: 600;
-          color: var(--color-heading);
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var h1 {
-          font-size: 2.5em;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var h2 {
-          font-size: 2em;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var h3 {
-          font-size: 1.5em;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var h4 {
-          font-size: 1.25em;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var p {
-          margin: 20px 0;
-          color: var(--color-body);
-          line-height: 1.8;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var strong,
-        .smart-content-viewer.markdown-content .wmde-markdown-var b {
-          color: var(--color-heading);
-          font-weight: 700;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var code {
-          background: var(--background-color-4);
-          padding: 2px 6px;
-          border-radius: 4px;
-          color: #00FF88;
-          font-family: 'Courier New', monospace;
-          font-size: 0.9em;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var pre {
-          background: var(--background-color-4);
-          border: 1px solid var(--color-border);
-          padding: 20px;
-          border-radius: 8px;
-          overflow-x: auto;
-          margin: 20px 0;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var pre code {
-          background: none;
-          padding: 0;
-          color: #00FF88;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var blockquote {
-          border-left: 4px solid #7B2FFF;
-          padding: 15px 20px;
-          margin: 20px 0;
-          background: var(--background-color-3);
-          border-radius: 4px;
-          color: var(--color-body);
-          font-style: italic;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var ul,
-        .smart-content-viewer.markdown-content .wmde-markdown-var ol {
-          margin: 20px 0 20px 30px;
-          line-height: 1.8;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var li {
-          margin-bottom: 10px;
-          color: var(--color-body);
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var a {
-          color: #7B2FFF;
-          text-decoration: none;
-          transition: 0.3s;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var a:hover {
-          text-decoration: underline;
-          color: #00FF88;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var img {
-          max-width: 100%;
-          height: auto;
-          margin: 20px 0;
-          border-radius: 8px;
-          display: block;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var table {
-          width: 100%;
-          border-collapse: collapse;
-          margin: 20px 0;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var th,
-        .smart-content-viewer.markdown-content .wmde-markdown-var td {
-          border: 1px solid var(--color-border);
-          padding: 12px;
-          text-align: left;
-          color: var(--color-body);
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var th {
-          background: var(--background-color-4);
-          color: var(--color-heading);
-          font-weight: 600;
-        }
-
-        .smart-content-viewer.markdown-content .wmde-markdown-var hr {
-          border: none;
-          border-top: 1px solid var(--color-border);
-          margin: 30px 0;
-        }
-
-        .no-content {
-          padding: 40px 20px;
-          text-align: center;
-          color: var(--color-gray);
-          font-size: 16px;
-        }
-      `}</style>
     </div>
   );
 }
