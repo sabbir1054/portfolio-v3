@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import "@uiw/react-markdown-preview/markdown.css";
-import "@uiw/react-markdown-preview/markdown-light.css";
 
 const MDPreview = dynamic(
   () => import("@uiw/react-markdown-preview").then(mod => mod.default),
