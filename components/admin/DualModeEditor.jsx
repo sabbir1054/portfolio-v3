@@ -10,7 +10,6 @@ const modules = {
   toolbar: [
     [{ header: [1, 2, 3, 4, false] }],
     ["bold", "italic", "underline", "strike"],
-    [{ color: [] }, { background: [] }],
     [{ list: "ordered" }, { list: "bullet" }],
     ["blockquote", "code-block"],
     ["table"],
@@ -22,14 +21,13 @@ const modules = {
 const formats = [
   "header",
   "bold", "italic", "underline", "strike",
-  "color", "background",
   "list",
   "blockquote", "code-block",
   "table",
   "link", "image", "video",
 ];
 
-export default function DualModeEditor({ value, onChange, contentType = "html" }) {
+export default function DualModeEditor({ value, onChange }) {
   const [showPasteModal, setShowPasteModal] = useState(false);
   const [pasteContent, setPasteContent] = useState("");
 
@@ -43,22 +41,16 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
 
   return (
     <div className="rich-text-editor-wrapper">
-      <div className="editor-toolbar">
-        <div className="toolbar-info">
-          <i className="fa-solid fa-pen-fancy" /> Rich Text Editor
-          <small>(Supports: Text, Tables, YouTube Videos, Images, Links)</small>
-        </div>
+      <div className="editor-actions">
         <button
           type="button"
-          className="editor-paste-btn"
+          className="paste-btn"
           onClick={() => setShowPasteModal(true)}
-          title="Paste HTML content"
         >
           <i className="fa-solid fa-paste" /> Paste HTML
         </button>
       </div>
 
-      {/* Paste Modal */}
       {showPasteModal && (
         <div className="modal-overlay" onClick={() => setShowPasteModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -84,24 +76,23 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
             <div className="modal-footer">
               <button
                 type="button"
-                className="admin-btn admin-btn-default"
+                className="modal-btn modal-btn-cancel"
                 onClick={() => setShowPasteModal(false)}
               >
                 Cancel
               </button>
               <button
                 type="button"
-                className="admin-btn admin-btn-primary"
+                className="modal-btn modal-btn-submit"
                 onClick={handleHtmlPaste}
               >
-                <i className="fa-solid fa-check" /> Paste Content
+                <i className="fa-solid fa-check" /> Paste
               </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* Rich Text Editor */}
       <div className="rich-text-editor">
         <ReactQuill
           theme="snow"
@@ -109,99 +100,99 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
           onChange={onChange}
           modules={modules}
           formats={formats}
-          placeholder="Write your content using rich text formatting... Insert tables, embed YouTube videos, add links and images."
+          placeholder="Write your blog content here..."
         />
       </div>
 
-      <div className="editor-hint">
-        <i className="fa-solid fa-circle-info" />
-        <div>
-          <strong>YouTube Videos:</strong> Click the video button and enter the YouTube video URL<br/>
-          <strong>Tables:</strong> Click the table button to insert/manage tables<br/>
-          <strong>Images:</strong> Click the image button or paste image URL
-        </div>
-      </div>
-
-      <style jsx>{`
+      <style jsx global>{`
         .rich-text-editor-wrapper {
-          border: 1px solid #ddd;
+          background: var(--background-color-4);
+          border: 1px solid var(--color-border);
           border-radius: 8px;
           overflow: hidden;
-          background: #fff;
         }
 
-        .editor-toolbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 12px;
-          padding: 12px;
-          border-bottom: 1px solid #eee;
-          background: #f9f9f9;
-          flex-wrap: wrap;
+        .rich-text-editor-wrapper .ql-toolbar {
+          background: var(--background-color-3) !important;
+          border: 1px solid var(--color-border) !important;
+          border-bottom: 1px solid var(--color-border) !important;
         }
 
-        .toolbar-info {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-          font-size: 14px;
+        .rich-text-editor-wrapper .ql-toolbar button,
+        .rich-text-editor-wrapper .ql-toolbar button:hover,
+        .rich-text-editor-wrapper .ql-toolbar button.ql-active,
+        .rich-text-editor-wrapper .ql-toolbar.ql-snow button:hover,
+        .rich-text-editor-wrapper .ql-toolbar.ql-snow button.ql-active {
+          color: var(--color-heading) !important;
         }
 
-        .toolbar-info small {
-          color: #666;
-          font-size: 12px;
+        .rich-text-editor-wrapper .ql-toolbar.ql-snow button:hover,
+        .rich-text-editor-wrapper .ql-toolbar.ql-snow button.ql-active {
+          color: #00FF88 !important;
         }
 
-        .editor-paste-btn {
-          padding: 8px 16px;
-          background: #28a745;
-          color: white;
-          border: 1px solid #28a745;
-          border-radius: 4px;
-          cursor: pointer;
-          font-size: 14px;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          transition: all 0.2s;
-          white-space: nowrap;
+        .rich-text-editor-wrapper .ql-container {
+          background: var(--background-color-4) !important;
+          border: none !important;
+          font-family: var(--font-secondary) !important;
         }
 
-        .editor-paste-btn:hover {
-          background: #218838;
-          border-color: #218838;
-        }
-
-        .rich-text-editor {
-          padding: 12px;
+        .rich-text-editor-wrapper .ql-editor {
+          color: var(--color-body) !important;
           min-height: 400px;
         }
 
-        .editor-hint {
-          padding: 12px;
-          background: #e7f3ff;
-          border-top: 1px solid #ddd;
-          font-size: 13px;
-          color: #004085;
+        .rich-text-editor-wrapper .ql-editor.ql-blank::before {
+          color: var(--color-gray) !important;
+        }
+
+        .rich-text-editor-wrapper .ql-editor h1,
+        .rich-text-editor-wrapper .ql-editor h2,
+        .rich-text-editor-wrapper .ql-editor h3,
+        .rich-text-editor-wrapper .ql-editor h4 {
+          color: var(--color-heading);
+        }
+
+        .editor-actions {
           display: flex;
-          gap: 10px;
-          align-items: flex-start;
+          justify-content: flex-end;
+          gap: 8px;
+          padding: 10px 12px;
+          border-bottom: 1px solid var(--color-border);
+          background: var(--background-color-3);
         }
 
-        .editor-hint i {
-          flex-shrink: 0;
-          margin-top: 2px;
+        .paste-btn {
+          padding: 6px 12px;
+          background: transparent;
+          color: #00FF88;
+          border: 1px solid #00FF88;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 13px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          transition: all 0.3s;
+          font-family: var(--font-secondary);
         }
 
-        /* Modal Styles */
+        .paste-btn:hover {
+          background: rgba(0, 255, 136, 0.1);
+          color: #00FF88;
+        }
+
+        .rich-text-editor {
+          padding: 0;
+        }
+
         .modal-overlay {
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(0, 0, 0, 0.7);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -209,9 +200,10 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
         }
 
         .modal-content {
-          background: white;
+          background: var(--background-color-4);
+          border: 1px solid var(--color-border);
           border-radius: 8px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
           max-width: 600px;
           width: 90%;
           max-height: 80vh;
@@ -220,7 +212,7 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
 
         .modal-header {
           padding: 20px;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid var(--color-border);
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -229,6 +221,8 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
         .modal-header h3 {
           margin: 0;
           font-size: 18px;
+          color: var(--color-heading);
+          font-family: var(--font-primary);
         }
 
         .modal-close {
@@ -236,8 +230,13 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
           border: none;
           font-size: 24px;
           cursor: pointer;
-          color: #666;
+          color: var(--color-gray);
           padding: 0;
+          transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+          color: var(--color-heading);
         }
 
         .modal-body {
@@ -247,29 +246,69 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
         .paste-textarea {
           width: 100%;
           padding: 12px;
-          border: 1px solid #ddd;
+          border: 1px solid var(--color-border);
+          background: var(--background-color-3);
+          color: var(--color-body);
           border-radius: 4px;
-          font-family: monospace;
+          font-family: 'Courier New', monospace;
           font-size: 13px;
           resize: vertical;
         }
 
+        .paste-textarea::placeholder {
+          color: var(--color-gray);
+        }
+
         .modal-footer {
           padding: 15px 20px;
-          border-top: 1px solid #eee;
+          border-top: 1px solid var(--color-border);
           display: flex;
           gap: 10px;
           justify-content: flex-end;
         }
 
+        .modal-btn {
+          padding: 8px 16px;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-family: var(--font-secondary);
+          transition: all 0.3s;
+          border: 1px solid var(--color-border);
+        }
+
+        .modal-btn-cancel {
+          background: transparent;
+          color: var(--color-body);
+        }
+
+        .modal-btn-cancel:hover {
+          background: var(--background-color-3);
+          color: var(--color-heading);
+        }
+
+        .modal-btn-submit {
+          background: #7B2FFF;
+          color: white;
+          border-color: #7B2FFF;
+        }
+
+        .modal-btn-submit:hover {
+          background: #6a1fdd;
+          border-color: #6a1fdd;
+        }
+
         @media (max-width: 768px) {
-          .editor-toolbar {
+          .editor-actions {
             flex-direction: column;
-            align-items: flex-start;
           }
 
-          .editor-paste-btn {
-            align-self: flex-start;
+          .paste-btn {
+            width: 100%;
+            justify-content: center;
           }
         }
       `}</style>
