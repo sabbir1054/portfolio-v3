@@ -208,9 +208,17 @@ export default function OnepageNav2({
 
   const handleClick = (e, id) => {
     e.preventDefault();
-    document
-      .querySelector(id)
-      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    const isHomePage = typeof window !== "undefined" && window.location.pathname === "/";
+
+    if (isHomePage) {
+      // If on home page, scroll to section
+      document
+        .querySelector(id)
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else {
+      // If on other page, redirect to home with hash and scroll will happen after navigation
+      window.location.href = `/${id}`;
+    }
   };
 
   return (
