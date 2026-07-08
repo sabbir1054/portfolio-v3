@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BlogSidebar from "./BlogSidebar";
 import ShareButtons from "./ShareButtons";
+import SmartContentViewer from "./SmartContentViewer";
 import { slugify } from "@/utlis/slugify";
 
 export default function BlogDetails({ blog, isLight = false }) {
@@ -53,10 +54,7 @@ export default function BlogDetails({ blog, isLight = false }) {
                 </div>
                 <h3 className="title split-collab">{blog.title}</h3>
                 {blog.content ? (
-                  <div
-                    className="disc"
-                    dangerouslySetInnerHTML={{ __html: blog.content }}
-                  />
+                  <SmartContentViewer content={blog.content} contentType={blog.contentType} />
                 ) : (
                   <p className="disc">{blog.description}</p>
                 )}

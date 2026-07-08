@@ -4,7 +4,7 @@ import { useRouter, useParams } from "next/navigation";
 import { useAuth } from "@/components/admin/AuthProvider";
 import ImageUpload from "@/components/admin/ImageUpload";
 import TagInput from "@/components/admin/TagInput";
-import RichTextEditor from "@/components/admin/RichTextEditor";
+import DualModeEditor from "@/components/admin/DualModeEditor";
 import Link from "next/link";
 
 export default function EditBlog() {
@@ -14,7 +14,7 @@ export default function EditBlog() {
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({
-    title: "", description: "", content: "", imageSrc: "", author: "", tags: [], categories: [],
+    title: "", description: "", content: "", contentType: "html", imageSrc: "", author: "", tags: [], categories: [],
   });
 
   useEffect(() => {
@@ -67,10 +67,14 @@ export default function EditBlog() {
                 </div>
                 <div className="admin-form-group">
                   <label>Content</label>
-                  <RichTextEditor
+                  <DualModeEditor
                     value={form.content}
                     onChange={(value) => setForm({ ...form, content: value })}
+                    contentType={form.contentType}
                   />
+                  <small style={{ marginTop: "8px", display: "block", color: "#666" }}>
+                    💡 Tip: Choose between Rich Text or Markdown mode. You can also paste Markdown or HTML content directly.
+                  </small>
                 </div>
               </div>
             </div>

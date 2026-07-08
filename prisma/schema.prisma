@@ -13,6 +13,7 @@ model Blog {
   slug        String   @unique
   description String   @default("")
   content     String   @default("") @db.Text
+  contentType String   @default("html") // "html" or "markdown"
   imageSrc    String   @default("")
   tags        Json     @default("[]")
   categories  Json     @default("[]")
