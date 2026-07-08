@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 import { useMemo } from "react";
 
 const MDPreview = dynamic(
-  () => import("@uiw/react-markdown-preview").then((mod) => mod.default),
-  { ssr: false }
+  () => import("@uiw/react-markdown-preview"),
+  { ssr: false, loading: () => <div>Loading...</div> }
 );
 
 // Function to detect if content is markdown or HTML

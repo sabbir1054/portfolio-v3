@@ -3,11 +3,8 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import "react-quill-new/dist/quill.snow.css";
-import MDEditor from "@uiw/react-md-editor";
-import "@uiw/react-markdown-preview/markdown.css";
-import "@uiw/react-mde/markdown-editor.css";
-import "@uiw/react-markdown-preview/markdown.css";
 
+const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 const modules = {
