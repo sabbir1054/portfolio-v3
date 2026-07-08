@@ -15,7 +15,6 @@ export default function NewBlog() {
     title: "",
     description: "",
     content: "",
-    contentType: "html",
     imageSrc: "",
     author: "",
     tags: [],
@@ -78,10 +77,9 @@ export default function NewBlog() {
                   <DualModeEditor
                     value={form.content}
                     onChange={(value) => setForm({ ...form, content: value })}
-                    contentType={form.contentType}
                   />
                   <small style={{ marginTop: "8px", display: "block", color: "#666" }}>
-                    💡 Tip: Choose between Rich Text or Markdown mode. You can also paste Markdown or HTML content directly.
+                    💡 Tip: Use the rich text editor to add formatting, tables, YouTube videos, and images.
                   </small>
                 </div>
               </div>

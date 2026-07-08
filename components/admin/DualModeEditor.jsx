@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import "react-quill-new/dist/quill.snow.css";
 
-const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 const modules = {
@@ -14,7 +13,8 @@ const modules = {
     [{ color: [] }, { background: [] }],
     [{ list: "ordered" }, { list: "bullet" }],
     ["blockquote", "code-block"],
-    ["link", "image"],
+    ["table"],
+    ["link", "image", "video"],
     ["clean"],
   ],
 };
@@ -25,51 +25,36 @@ const formats = [
   "color", "background",
   "list",
   "blockquote", "code-block",
-  "link", "image",
+  "table",
+  "link", "image", "video",
 ];
 
 export default function DualModeEditor({ value, onChange, contentType = "html" }) {
-  const [mode, setMode] = useState(contentType === "markdown" ? "markdown" : "rich");
   const [showPasteModal, setShowPasteModal] = useState(false);
   const [pasteContent, setPasteContent] = useState("");
 
-  const handleMarkdownPaste = () => {
+  const handleHtmlPaste = () => {
     if (pasteContent.trim()) {
       onChange(pasteContent);
-      setMode("markdown");
       setShowPasteModal(false);
       setPasteContent("");
     }
   };
 
-  const switchMode = (newMode) => {
-    setMode(newMode);
-  };
-
   return (
-    <div className="dual-mode-editor-wrapper">
-      <div className="editor-tabs">
+    <div className="rich-text-editor-wrapper">
+      <div className="editor-toolbar">
+        <div className="toolbar-info">
+          <i className="fa-solid fa-pen-fancy" /> Rich Text Editor
+          <small>(Supports: Text, Tables, YouTube Videos, Images, Links)</small>
+        </div>
         <button
           type="button"
-          className={`editor-tab-btn ${mode === "rich" ? "active" : ""}`}
-          onClick={() => switchMode("rich")}
-        >
-          <i className="fa-solid fa-pen-fancy" /> Rich Text
-        </button>
-        <button
-          type="button"
-          className={`editor-tab-btn ${mode === "markdown" ? "active" : ""}`}
-          onClick={() => switchMode("markdown")}
-        >
-          <i className="fa-solid fa-file-code" /> Markdown
-        </button>
-        <button
-          type="button"
-          className="editor-tab-btn paste-btn"
+          className="editor-paste-btn"
           onClick={() => setShowPasteModal(true)}
-          title="Paste markdown or HTML content"
+          title="Paste HTML content"
         >
-          <i className="fa-solid fa-paste" /> Paste Content
+          <i className="fa-solid fa-paste" /> Paste HTML
         </button>
       </div>
 
@@ -78,7 +63,7 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
         <div className="modal-overlay" onClick={() => setShowPasteModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h3>Paste Markdown or HTML Content</h3>
+              <h3>Paste HTML Content</h3>
               <button
                 type="button"
                 className="modal-close"
@@ -91,7 +76,7 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
               <textarea
                 value={pasteContent}
                 onChange={(e) => setPasteContent(e.target.value)}
-                placeholder="Paste your markdown or HTML content here..."
+                placeholder="Paste your HTML content here..."
                 rows={12}
                 className="paste-textarea"
               />
@@ -107,7 +92,7 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
               <button
                 type="button"
                 className="admin-btn admin-btn-primary"
-                onClick={handleMarkdownPaste}
+                onClick={handleHtmlPaste}
               >
                 <i className="fa-solid fa-check" /> Paste Content
               </button>
@@ -117,64 +102,62 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
       )}
 
       {/* Rich Text Editor */}
-      {mode === "rich" && (
-        <div className="rich-text-editor">
-          <ReactQuill
-            theme="snow"
-            value={value}
-            onChange={onChange}
-            modules={modules}
-            formats={formats}
-            placeholder="Write your content using rich text formatting..."
-          />
-        </div>
-      )}
-
-      {/* Markdown Editor */}
-      {mode === "markdown" && (
-        <div className="markdown-editor" data-color-mode="light">
-          <MDEditor
-            value={value}
-            onChange={onChange}
-            preview="edit"
-            height={400}
-            visibleDragbar={true}
-            textareaProps={{
-              placeholder:
-                "Enter markdown content here...",
-            }}
-            hideToolbar={false}
-          />
-        </div>
-      )}
+      <div className="rich-text-editor">
+        <ReactQuill
+          theme="snow"
+          value={value}
+          onChange={onChange}
+          modules={modules}
+          formats={formats}
+          placeholder="Write your content using rich text formatting... Insert tables, embed YouTube videos, add links and images."
+        />
+      </div>
 
       <div className="editor-hint">
-        <i className="fa-solid fa-lightbulb" />
-        {mode === "rich" && " Tip: Switch to Markdown mode for better control over formatting"}
-        {mode === "markdown" && " Tip: Use standard Markdown syntax for content. Switch to Rich Text for WYSIWYG editing"}
+        <i className="fa-solid fa-circle-info" />
+        <div>
+          <strong>YouTube Videos:</strong> Click the video button and enter the YouTube video URL<br/>
+          <strong>Tables:</strong> Click the table button to insert/manage tables<br/>
+          <strong>Images:</strong> Click the image button or paste image URL
+        </div>
       </div>
 
       <style jsx>{`
-        .dual-mode-editor-wrapper {
+        .rich-text-editor-wrapper {
           border: 1px solid #ddd;
           border-radius: 8px;
           overflow: hidden;
           background: #fff;
         }
 
-        .editor-tabs {
+        .editor-toolbar {
           display: flex;
-          gap: 8px;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
           padding: 12px;
           border-bottom: 1px solid #eee;
           background: #f9f9f9;
           flex-wrap: wrap;
         }
 
-        .editor-tab-btn {
+        .toolbar-info {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          font-size: 14px;
+        }
+
+        .toolbar-info small {
+          color: #666;
+          font-size: 12px;
+        }
+
+        .editor-paste-btn {
           padding: 8px 16px;
-          border: 1px solid #ddd;
-          background: white;
+          background: #28a745;
+          color: white;
+          border: 1px solid #28a745;
           border-radius: 4px;
           cursor: pointer;
           font-size: 14px;
@@ -182,48 +165,33 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
           align-items: center;
           gap: 6px;
           transition: all 0.2s;
+          white-space: nowrap;
         }
 
-        .editor-tab-btn:hover {
-          border-color: #666;
-          background: #f0f0f0;
-        }
-
-        .editor-tab-btn.active {
-          background: #1e90ff;
-          color: white;
-          border-color: #1e90ff;
-        }
-
-        .editor-tab-btn.paste-btn {
-          margin-left: auto;
-          background: #28a745;
-          color: white;
-          border-color: #28a745;
-        }
-
-        .editor-tab-btn.paste-btn:hover {
+        .editor-paste-btn:hover {
           background: #218838;
           border-color: #218838;
         }
 
         .rich-text-editor {
           padding: 12px;
-        }
-
-        .markdown-editor {
-          padding: 0;
+          min-height: 400px;
         }
 
         .editor-hint {
-          padding: 10px 12px;
-          background: #f0f8ff;
+          padding: 12px;
+          background: #e7f3ff;
           border-top: 1px solid #ddd;
           font-size: 13px;
-          color: #666;
+          color: #004085;
           display: flex;
-          gap: 8px;
-          align-items: center;
+          gap: 10px;
+          align-items: flex-start;
+        }
+
+        .editor-hint i {
+          flex-shrink: 0;
+          margin-top: 2px;
         }
 
         /* Modal Styles */
@@ -295,12 +263,13 @@ export default function DualModeEditor({ value, onChange, contentType = "html" }
         }
 
         @media (max-width: 768px) {
-          .editor-tabs {
+          .editor-toolbar {
             flex-direction: column;
+            align-items: flex-start;
           }
 
-          .editor-tab-btn.paste-btn {
-            margin-left: 0;
+          .editor-paste-btn {
+            align-self: flex-start;
           }
         }
       `}</style>
